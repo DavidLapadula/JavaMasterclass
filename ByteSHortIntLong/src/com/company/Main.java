@@ -33,6 +33,20 @@ public class Main {
 		System.out.println("Long min value " + myMinLongValue);
 		System.out.println("Long max value " + myMaxLongValue);
 
+		int myTotal = (myMinIntValue / 2);
+		byte myNewByteValue = (byte) (myMinByteValue / 2);
+
+		short myNewShortValue = (short) (myMinShortValue / 2);
+
+		// Arithmetic Challenge
+            byte testByteVal = 10;
+            short testShortVal = 20;
+            int testIntVal = 50;
+
+            long result = 50000L + (10L * ( testByteVal + testShortVal + testIntVal));
+
+        System.out.println(result);
+
 
     }
 }
