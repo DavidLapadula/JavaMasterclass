@@ -43,9 +43,9 @@ public class Main {
             short testShortVal = 20;
             int testIntVal = 50;
 
-            long result = 50000L + (10L * ( testByteVal + testShortVal + testIntVal));
+            long result = 50000L + (10L * (testByteVal + testShortVal + testIntVal));
 
-        System.out.println(result);
+            short shortTotal = (short) (1000 + 10 * (testByteVal + testShortVal + testIntVal));
 
 
     }
