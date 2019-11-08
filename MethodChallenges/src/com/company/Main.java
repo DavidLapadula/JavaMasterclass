@@ -20,6 +20,10 @@ public class Main {
 
         // Barking Dog Challenge
         System.out.println("Barking Dog Challenge");
+        System.out.println(BarkingDog.shouldWakeUp(true, 1));
+        System.out.println(BarkingDog.shouldWakeUp(false, 2));
+        System.out.println(BarkingDog.shouldWakeUp(true, 8));
+        System.out.println(BarkingDog.shouldWakeUp(true, -1));
         System.out.println("--------------------------------");
     }
 }
