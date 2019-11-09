@@ -25,5 +25,13 @@ public class Main {
         System.out.println(BarkingDog.shouldWakeUp(true, 8));
         System.out.println(BarkingDog.shouldWakeUp(true, -1));
         System.out.println("--------------------------------");
+
+        // Leap Year Calculator
+        System.out.println("Leap Year Challenge");
+        System.out.println(LeapYear.isLeapYear(-1600));
+        System.out.println(LeapYear.isLeapYear(1600));
+        System.out.println(LeapYear.isLeapYear(2017));
+        System.out.println(LeapYear.isLeapYear(2000));
+        System.out.println("--------------------------------");
     }
 }
