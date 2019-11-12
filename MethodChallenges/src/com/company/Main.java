@@ -42,5 +42,12 @@ public class Main {
         System.out.println(DecimalComparator.areEqualByThreeDecimalPlaces(-3.123,3.123));
         System.out.println("--------------------------------");
 
+        // Equal Sum Checker
+        System.out.println("Equal Sum Challenge");
+        System.out.println(EqualSumChecker.hasEqualSum(1, 1, 1));
+        System.out.println(EqualSumChecker.hasEqualSum(1, 1, 2));
+        System.out.println(EqualSumChecker.hasEqualSum(1, -1, 0));
+        System.out.println("--------------------------------");
+
     }
 }
