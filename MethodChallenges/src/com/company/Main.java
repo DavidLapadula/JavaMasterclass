@@ -49,5 +49,12 @@ public class Main {
         System.out.println(EqualSumChecker.hasEqualSum(1, -1, 0));
         System.out.println("--------------------------------");
 
+        // Teen Number Checker
+        System.out.println("Teen Number Challenge");
+        System.out.println(TeenNumberChecker.hasTeen(9, 19, 99));
+        System.out.println(TeenNumberChecker.hasTeen(23, 15, 42));
+        System.out.println(TeenNumberChecker.hasTeen(22, 23, 34));
+        System.out.println("--------------------------------");
+
     }
 }
