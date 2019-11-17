@@ -56,5 +56,18 @@ public class Main {
         System.out.println(TeenNumberChecker.hasTeen(22, 23, 34));
         System.out.println("--------------------------------");
 
+        // Seconds and Minutes challenge
+        System.out.println("Seconds and minutes Challenge");
+        System.out.println(SecondsAndMinutes.getDurationString(-5, 30));
+        System.out.println(SecondsAndMinutes.getDurationString(180, -5));
+        System.out.println(SecondsAndMinutes.getDurationString(180, 180));
+        System.out.println(SecondsAndMinutes.getDurationString(65, 30));
+        System.out.println(SecondsAndMinutes.getDurationString(135, 40));
+        System.out.println(SecondsAndMinutes.getDurationString(195, 50));
+        System.out.println(SecondsAndMinutes.getDurationString(-5));
+        System.out.println(SecondsAndMinutes.getDurationString(3600));
+        System.out.println(SecondsAndMinutes.getDurationString(5000));
+        System.out.println("--------------------------------");
+
     }
 }
