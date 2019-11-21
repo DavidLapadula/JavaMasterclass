@@ -69,5 +69,14 @@ public class Main {
         System.out.println(SecondsAndMinutes.getDurationString(5000));
         System.out.println("--------------------------------");
 
+        // Area Calculator Challenge
+        System.out.println("Area Calculator Challenge");
+        System.out.println(AreaCalculator.area(5.0));
+        System.out.println(AreaCalculator.area(-1));
+        System.out.println(AreaCalculator.area(5.0, 4.0));
+        System.out.println(AreaCalculator.area(-1.0, 4.0));
+        System.out.println("--------------------------------");
+
+
     }
 }
