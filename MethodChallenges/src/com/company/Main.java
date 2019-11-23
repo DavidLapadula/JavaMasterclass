@@ -77,6 +77,30 @@ public class Main {
         System.out.println(AreaCalculator.area(-1.0, 4.0));
         System.out.println("--------------------------------");
 
+        // Minutes to years and days Challenge
+        System.out.println("Minutes to years and days Challenge");
+        MinutesToYearsDaysCalculator.printYearsAndDays(-5);
+        MinutesToYearsDaysCalculator.printYearsAndDays(525600);
+        MinutesToYearsDaysCalculator.printYearsAndDays(1051200);
+        MinutesToYearsDaysCalculator.printYearsAndDays(561600);
+        System.out.println("--------------------------------");
+
+        // Equality Challenge
+        System.out.println("Equality Challenge");
+        IntEqualityPrinter.printEqual(-5, 0, 0);
+        IntEqualityPrinter.printEqual(1, 1, 1);
+        IntEqualityPrinter.printEqual(1, 1, 2);
+        IntEqualityPrinter.printEqual(-1, -1, -1);
+        IntEqualityPrinter.printEqual(1, 2, 3);
+        System.out.println("--------------------------------");
+
+        //Playing Cat
+        System.out.println("Playing Cat Challenge");
+        System.out.println(PlayingCat.isCatPlaying(true, 10));
+        System.out.println(PlayingCat.isCatPlaying(false, 36));
+        System.out.println(PlayingCat.isCatPlaying(false, 35));
+        System.out.println("--------------------------------");
+
 
     }
 }
