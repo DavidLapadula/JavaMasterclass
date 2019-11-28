@@ -34,6 +34,14 @@ public class Main {
         System.out.println(Switch.getDaysInMonth(1, -2020));
         System.out.println("---------------------------");
 
+        // Number Palidrome Challenge
+        System.out.println("Number palindrome challenge");
+        System.out.println(NumberPalindrome.isPalindrome(-1221));
+        System.out.println(NumberPalindrome.isPalindrome(707));
+        System.out.println(NumberPalindrome.isPalindrome(11212));
+        System.out.println("---------------------------");
+
+
 
     }
 }
