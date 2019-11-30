@@ -50,6 +50,13 @@ public class Main {
         System.out.println(FirstLastDigitSum.sumFirstAndLastDigit(-10));
         System.out.println("---------------------------");
 
+        // Even Digit Sum Challenge
+        System.out.println("First and last digit sum challenge");
+        System.out.println(EvenDigitSum.getEvenDigitSum(123456789));
+        System.out.println(EvenDigitSum.getEvenDigitSum(252));
+        System.out.println(EvenDigitSum.getEvenDigitSum(-22));
+        System.out.println("---------------------------");
+
 
 
     }
