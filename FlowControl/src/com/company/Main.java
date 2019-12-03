@@ -57,6 +57,18 @@ public class Main {
         System.out.println(EvenDigitSum.getEvenDigitSum(-22));
         System.out.println("---------------------------");
 
+        // Flour Pack Problem
+        System.out.println("Flour pack problem challenge");
+        System.out.println(FlourPack.canPack(1, 0, 4));
+        System.out.println(FlourPack.canPack(1, 0, 5));
+        System.out.println(FlourPack.canPack(0, 5 , 4));
+        System.out.println(FlourPack.canPack(2, 2, 11));
+        System.out.println(FlourPack.canPack(-3, 2, 12));
+        System.out.println("---------------------------");
+
+
+
+
 
 
     }
