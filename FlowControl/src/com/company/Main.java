@@ -64,12 +64,18 @@ public class Main {
         System.out.println(FlourPack.canPack(0, 5 , 4));
         System.out.println(FlourPack.canPack(2, 2, 11));
         System.out.println(FlourPack.canPack(-3, 2, 12));
+        System.out.println(FlourPack.canPack(4, 18, 19));
         System.out.println("---------------------------");
 
-
-
-
-
+        // Get Largest Prime Challenge
+        System.out.println("Flour pack problem challenge");
+        LargestPrime.getLargestPrime(21);
+//        System.out.println(LargestPrime.getLargestPrime(21));
+//        System.out.println(LargestPrime.getLargestPrime(217));
+//        System.out.println(LargestPrime.getLargestPrime(0));
+//        System.out.println(LargestPrime.getLargestPrime(45));
+//        System.out.println(LargestPrime.getLargestPrime(-1));
+        System.out.println("---------------------------");
 
     }
 }
