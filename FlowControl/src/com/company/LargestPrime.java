@@ -8,12 +8,13 @@ public class LargestPrime {
             int copyOfInput = number;
 
             for (largestPrime = 2; largestPrime <= copyOfInput; largestPrime++) {
+                // Prime factors either fully divide the number being checked, or produce another prime factor
+                // in either case the loop divides the number by a number that leaves no remainder. This happens until the number and largest prime are equal, making 'copyOfInput' == 1
+                // And the largest prime will always be greater than that. 
                 if (copyOfInput % largestPrime == 0) {
                     copyOfInput /= largestPrime;
                     largestPrime--;
                 }
-                System.out.println(largestPrime);
-                System.out.println(copyOfInput);
             }
         } else {
            largestPrime = -1;

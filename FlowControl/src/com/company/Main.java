@@ -69,13 +69,20 @@ public class Main {
 
         // Get Largest Prime Challenge
         System.out.println("Flour pack problem challenge");
-        LargestPrime.getLargestPrime(21);
-//        System.out.println(LargestPrime.getLargestPrime(21));
-//        System.out.println(LargestPrime.getLargestPrime(217));
-//        System.out.println(LargestPrime.getLargestPrime(0));
-//        System.out.println(LargestPrime.getLargestPrime(45));
-//        System.out.println(LargestPrime.getLargestPrime(-1));
+        System.out.println(LargestPrime.getLargestPrime(21));
+        System.out.println(LargestPrime.getLargestPrime(217));
+        System.out.println(LargestPrime.getLargestPrime(0));
+        System.out.println(LargestPrime.getLargestPrime(45));
+        System.out.println(LargestPrime.getLargestPrime(-1));
         System.out.println("---------------------------");
+
+        // Diagonal Star Challenge
+        System.out.println("Diagonal Star Challenge");
+        DiagonalStar.printSquareStar(4); 
+        DiagonalStar.printSquareStar(5); 
+        DiagonalStar.printSquareStar(8); 
+        System.out.println("---------------------------");
+
 
     }
 }
