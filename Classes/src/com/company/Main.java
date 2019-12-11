@@ -13,11 +13,9 @@ public class Main {
         davidAccount.withDrawal(100);
 
         Account otherAccount = new Account("123456", 0.00, "David", "david@email.com", "4165569985");
-
         System.out.println(otherAccount.getCustomerName());
 
         Account nextAccount = new Account();
-
         System.out.println(nextAccount.getCustomerName());
 
 
