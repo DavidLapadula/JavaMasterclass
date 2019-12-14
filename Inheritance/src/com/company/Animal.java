@@ -20,8 +20,8 @@ public class Animal {
         System.out.println("Eating");
     }
 
-    public void move() {
-        System.out.println("Moving");
+    public void move(int speed) {
+        System.out.println("Moving at " + speed);
     }
 
     public int getBrain() {

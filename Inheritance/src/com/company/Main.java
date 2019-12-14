@@ -7,6 +7,6 @@ public class Main {
         Dog dog = new Dog(5, 50, "Yorkie", 2, 4, 1, 20, "Silky");
 
         dog.eat();
-        dog.move();
+        dog.run();
     }
 }
