@@ -32,4 +32,19 @@ public class MinElement {
 
         return min;
     };
+
+    // Swapping elements, once reached half then already has been swapped
+    // Store current item in temp variable
+    // set surrent item to the maximum index minus the current item index (its mirror)
+    // set the mirror to the temp that is stored
+    public static void reverse(int[] array) {
+        int maxIndex = array.length - 1;
+        int halfLength = array.length / 2;
+
+        for(int i = 0; i < halfLength; i++) {
+            int temp = array[i];
+            array[i] = array[maxIndex - i];
+            array[maxIndex - i] = temp;
+        };
+    };
 }
