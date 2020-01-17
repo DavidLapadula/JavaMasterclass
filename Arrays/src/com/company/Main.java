@@ -1,5 +1,4 @@
 package com.company;
-
 import java.util.Scanner;
 
 /*
@@ -18,14 +17,14 @@ public class Main {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+        // Testing
         int[] myIntArray =  new int[10];
         double[] myDoubleArray = {1, 2, 3, 4, 5, 6, 7, 8, 9};
         myIntArray[5] = 50;
 
-        int[] myIntegers = getIntegers(5);
-        for (int i = 0; i < myIntegers.length; i++) {
-            System.out.println(myIntegers[i]);
-        }
+
+        int[] returnedArray = MinElement.readIntegers(5);
+
     };
 
     public static int[] getIntegers(int number) {
