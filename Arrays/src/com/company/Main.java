@@ -22,6 +22,10 @@ Array List
            - Could also make a new array of the required size and then call the toArray method from ArrayList and pass in the new array to make array from arraylist
     - Best practice is to not require the client to send any specific data, like array number as index
     - Should just pass the item and then the class should be self contained to perform the function. Internal methods only used in class have private modifier
+Challenge
+    - Within class can make static method to make instances that returns creation of own class
+    - Initialized lists should go in the constructor
+    - Classes that access should not know about underlying data structure
  */
 
 public class Main {
