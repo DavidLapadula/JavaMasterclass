@@ -18,7 +18,10 @@ Array List
     - Array List is a class
     - Use <> to define type of item being held in the array list
     - all the code to add and save is abstracted away by methods
-    - Methods: get, add, set(position, data), remove
+    - Methods: get, add, set(position, data), remove, contains, addAll (to add entire contents of one array to another)
+           - Could also make a new array of the required size and then call the toArray method from ArrayList and pass in the new array to make array from arraylist
+    - Best practice is to not require the client to send any specific data, like array number as index
+    - Should just pass the item and then the class should be self contained to perform the function. Internal methods only used in class have private modifier
  */
 
 public class Main {
