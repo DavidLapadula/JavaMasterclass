@@ -10,6 +10,15 @@ import java.util.Scanner;
     - Use {} to make anonymous array, implicitly set length and values
     - If use the wrong index then will give you out of bounds error
     - <= to avoid out of bounds error to last value in array because is zero indexed
+    - can resize by saving original into another variable, initialize new array of size you want, and then loop temp variable to reassign
+Array List
+    - List is ordered sequence. Can access element by index, insert by index, and control which index items are at
+    - ArrayList inherits from Abstract List class
+    - Is a resizeable array, so capacity grows automatically
+    - Array List is a class
+    - Use <> to define type of item being held in the array list
+    - all the code to add and save is abstracted away by methods
+    - Methods: get, add, set(position, data), remove
  */
 
 public class Main {
@@ -17,12 +26,12 @@ public class Main {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        // Testing
+        //  Testing how to initialize
         int[] myIntArray =  new int[10];
         double[] myDoubleArray = {1, 2, 3, 4, 5, 6, 7, 8, 9};
         myIntArray[5] = 50;
 
-
+        // Min element sort
         int[] returnedArray = MinElement.readIntegers(5);
 
     };
