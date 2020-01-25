@@ -15,6 +15,10 @@ public class Branch {
         return name;
     }
 
+    public ArrayList<Customer> getCustomers() {
+        return customers;
+    }
+
     // return boolean to determine success of CRUD operations
     public boolean newCustomer(String customerName, double initialAmount) {
         if (findCustomer(customerName) == null) {
