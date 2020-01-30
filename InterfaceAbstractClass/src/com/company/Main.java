@@ -11,13 +11,11 @@ public class Main {
                 - When making a new class that implements I - name of I is the type, but new called on class that implements it
                     - Interface is for which methods are valid (cannot be instantiated)
                     - The implementation is the specific type that implements it
+                - Datatype being Interface allows for reassignment to another type of class that implements the same interface
 
      */
 
     public static void main(String[] args) {
-            ITelephone timsPhone;
-            timsPhone = new DeskPhone(123456);
-            timsPhone.powerOn();
-            timsPhone.callPhone(123456789);
+
     }
 }
