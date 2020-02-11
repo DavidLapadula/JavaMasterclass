@@ -7,9 +7,4 @@ public class Toucan extends Bird
         super(name);
     }
 
-    @Override
-    public void fly()
-    {
-        System.out.println("Toucan Flying");
-    }
 }

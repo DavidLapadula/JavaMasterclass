@@ -1,6 +1,6 @@
 package com.company;
 
-public abstract class Bird extends Animal
+public abstract class Bird extends Animal implements CanFly
 {
     public Bird(String name)
     {
@@ -19,5 +19,9 @@ public abstract class Bird extends Animal
         System.out.println("Bird breathing");
     }
 
-    public abstract void fly();
+    @Override
+    public void fly()
+    {
+        System.out.println("Animal flapping its wings");
+    }
 }

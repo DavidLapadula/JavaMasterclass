@@ -18,6 +18,11 @@ public class Main {
             - Datatype being Interface allows for reassignment to another type of class that implements the same interface
             - Interface guarantees which methods are going to be implements, will not fall back to base class like inheritance
             - Declare it using interface unless reason to be more generic
+            - Abstract what from the how
+                - Can have private methods for when other methods in class have common code
+            - Use when: 
+                - Specify behaviour without implementation
+                - Implemeted by many unrelated classes
      */
 
     public static void main(String[] args) {
