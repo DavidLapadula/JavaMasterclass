@@ -112,9 +112,14 @@ public class SearchTree implements NodeList {
             }
         } else {
             // left and right are both not null
-            // From right sub tree, find the smallest value
             ListItem current = item.next();
             ListItem leftmostParent = item;
+
+            // Traverse down right sub tree and find the smallest value
+            while (current.previous() != null) {
+                leftmostParent = current;
+                current = current.previous();
+            }
 
             // put smallest value in node to be deleted
             item.setValue(current.getValue());
