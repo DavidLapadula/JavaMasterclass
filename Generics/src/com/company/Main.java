@@ -17,6 +17,7 @@ public class Main {
                     - Argument passed to typo parameter can be a class or an interface
                     - Interface them self can also specify type parameter; interface will only be able to act on specific instances
                 - Java allows for multiple bounds but normals rules of inheritance is allows (class must be first)
+                - Static sort method of Collections class: can be used to sort objects. Uses compareTo function to sort the objects
 	     */
 
 	    // Basic Array List test
@@ -39,6 +40,9 @@ public class Main {
 //        toronto.addPlayer(steve);
 
         System.out.println(toronto.numPlayers());
+
+        System.out.println("Rankings");
+        System.out.println(toronto.ranking());
 
     }
 
