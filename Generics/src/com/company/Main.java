@@ -18,6 +18,7 @@ public class Main {
                     - Interface them self can also specify type parameter; interface will only be able to act on specific instances
                 - Java allows for multiple bounds but normals rules of inheritance is allows (class must be first)
                 - Static sort method of Collections class: can be used to sort objects. Uses compareTo function to sort the objects
+                - Use compareTo in a class, then call sort from Collections on list of that class then it will use that compareTo by default
 	     */
 
 	    // Basic Array List test
@@ -37,12 +38,16 @@ public class Main {
         Team<BaseballPlayer> montreal = new Team<>("Montreal");
         toronto.addPlayer(joe);
         montreal.addPlayer(pat);
-//        toronto.addPlayer(steve);
 
         System.out.println(toronto.numPlayers());
-
         System.out.println("Rankings");
         System.out.println(toronto.ranking());
+
+        League <Team<FootballPlayer>> footballLeague = new League<>("AFL");
+        Team<FootballPlayer> torontoFC = new Team<>("Toronto FC");
+
+        footballLeague.add(torontoFC);
+        footballLeague.showLeagueTable();
 
     }
 
