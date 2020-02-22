@@ -4,6 +4,7 @@ package com.company;
 import com.example.game.ISaveable;
 import com.example.game.Monster;
 import javafx.scene.Node;
+import com.davidlapadula.mylibrary.Series;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -56,6 +57,8 @@ public class Main {
          */
 		((Monster) werewolf).getStrength();
 		saveObject(werewolf);
+
+		Series.fibonacci(5);
     }
 
 	public static ArrayList<String> readValues() {
