@@ -2,9 +2,6 @@ package com.company;
 
 
 import com.example.game.ISaveable;
-import com.example.game.Monster;
-import javafx.scene.Node;
-import com.davidlapadula.mylibrary.Series;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -46,19 +43,26 @@ public class Main {
 
 	     */
 
-//	    MyWindow myWindow = new MyWindow("Complete Java");
-//	    myWindow.setVisible(true);
+//		Series.fibonacci(5);
 
-		ISaveable werewolf = new Monster("Werewolf", 20, 40);
-        /*
-            If the interface is the datatype, need to cast the actual class to run methods
-                - Declare variable that can hold different types, need to be the generic interface
-                - Want to implement methods, than should be declared as the class
-         */
-		((Monster) werewolf).getStrength();
-		saveObject(werewolf);
+		String varFour = "private to main";
 
-		Series.fibonacci(5);
+		Scope scopeInstance = new Scope();
+		System.out.println("scope instance is " + scopeInstance.getVarOne());
+		System.out.println(varFour);
+		scopeInstance.timesTwo();
+
+		/*
+			- Making inner class instance type is Outer.Inner for the name
+			- Instantiated by instanceOfOuter.new NameOfInner()
+			- Need instance of outer before making instance of inner
+		 */
+		Scope.InnerClass innerClass = scopeInstance.new InnerClass();
+		innerClass.timesTwo();
+
+
+		X x = new X(new Scanner(System.in));
+		x.x();
     }
 
 	public static ArrayList<String> readValues() {
