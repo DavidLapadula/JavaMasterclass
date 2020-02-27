@@ -12,6 +12,7 @@ public class Theatre {
         int lastRow = 'A' + (numRows - 1);
         for (char row = 'A'; row <= lastRow; row++) {
             for (int seatNum = 1; seatNum <= seatsPerRow; seatNum++){
+                // Allow for formatting with a leading zero in front of string
                 Seat seat = new Seat(row + String.format("%02d", seatNum));
                 seats.add(seat);
             }
@@ -23,19 +24,16 @@ public class Theatre {
     }
 
     public boolean reserveSeat(String seatNumber) {
-        Seat  requestedSeat = null;
-        for(Seat seat: seats) {
-            if (seat.getSeatNumber().equals(seatNumber)) {
-                requestedSeat = seat;
-                break;
-            }
-        }
-        if (requestedSeat == null) {
-            System.out.println("No seat");
+        Seat  requestedSeat = new Seat(seatNumber);
+        // Because pass in a seat, which implements Comparable and overrides compareTo, it will use this in its binary search
+        int foundSeat = Collections.binarySearch(seats, requestedSeat, null);
+
+        if (foundSeat >= 0) {
+            return seats.get(foundSeat).reserve();
+        } else {
+            System.out.println("No seat number");
             return false;
         }
-
-        return requestedSeat.reserve();
     }
 
     public void getSeats() {
@@ -44,12 +42,17 @@ public class Theatre {
         }
     }
 
-    private class Seat {
+    private class Seat implements Comparable<Seat> {
         private final String seatNumber;
         private boolean reserved = false;
 
         public Seat(String seatNumber) {
             this.seatNumber = seatNumber;
+        }
+
+        @Override
+        public int compareTo(Seat seat) {
+            return this.seatNumber.compareToIgnoreCase(seat.getSeatNumber());
         }
 
         public boolean reserve() {
