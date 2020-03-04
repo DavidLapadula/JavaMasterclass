@@ -28,39 +28,43 @@ public class Main {
                 - Collections.reverse()
                 - Collections.shuffle()
                 - Collections.min() & max - contain sort order that is contained by the compareTo method that must be there. Does not need to be sorted
+                - Collections.sort(list, compareMethod)
+                    - Second argument is compare method
 
             - Collections copy method
                 - Takes destination and source list; destination needs to be of generic type that is superset of source list
                 -  Source must be a list
                 - Need to have actual objects in the destination, cannot just allocate space they need to be there
                 - Destination needs to have been initialized with enough elements first
+
+            - Comparator
+                - Interface that defines single method called compare
+                - Object that are going to be sorted DO NOT need to implement it
+                - Object of TYPE comparator can implement sort method
+                -
 	     */
 
 	    Theatre theatre = new Theatre("Olympian", 8, 12);
-	    List<Theatre.Seat> seatCopy = new ArrayList<>(theatre.seats);
-    }
 
-    public static void printList(List<Theatre.Seat> list) {
-        for (Theatre.Seat seat : list) {
-            System.out.print(seat.getSeatNumber());
-        }
-        System.out.println();
-        System.out.println("=================");
     }
 
     /*
         Implementation of bubble sort
-            - Bubble sort requires far less memory than bubble sort
+            - Bubble sort requires far less memory than merge sort
             - Inner loop starts at position outer loop has reached
-            -
+            - compareTo should return < 0 if object should short less than object compared to, > 0 if sort for more, 0 for even.
+                - If compareTo working like this, object implementing it (so containing class) can be sorted
+            - String compareTo in built method returns exactly this
      */
-    public static void sortList(List<? extends Theatre.Seat> list) {
-        for (int i = 0; i < list.size() - 1; i++) {
-            for (int j = i + 1; j < list.size() ; j++){
-                if(list.get(i).compareTo(list.get(j)) > 0) {
-                    Collections.swap(list, i, j);
+    /*
+          public static void sortList(List<? extends Theatre.Seat> list) {
+            for (int i = 0; i < list.size() - 1; i++) {
+                for (int j = i + 1; j < list.size() ; j++){
+                    if(list.get(i).compareTo(list.get(j)) > 0) {
+                        Collections.swap(list, i, j);
+                    }
                 }
             }
         }
-    }
+     */
 }
