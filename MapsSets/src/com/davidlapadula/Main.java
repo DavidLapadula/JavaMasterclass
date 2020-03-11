@@ -15,6 +15,8 @@ public class Main {
                     - keySet(): return all the keys
                     - remove(): returns boolean. pass in key and take it out. Can also pass in key and value and both key/pair has to be there in order to be removed
                     - replace(): replace entry of a key if it already mapped to a value. Pass in third optional argument, 2nd is old value to make sure the right value was updated from the old one
+                String split
+                    - Split string into array on a delimiter
 	   */
     }
 }
