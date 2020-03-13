@@ -12,6 +12,7 @@ public class Location {
         this.locationID = locationID;
         this.description = description;
         // create new map in constructor to make class immutable; otherwise removing it from the map passed in would also remove it from the class
+        // Also cannot make new hashmap from null param so need to check it
         if (exits != null) {
             this.exits = new HashMap<>(exits);
         } else {
