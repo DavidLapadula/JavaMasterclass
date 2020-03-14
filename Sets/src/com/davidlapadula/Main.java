@@ -27,6 +27,16 @@ public class Main {
                 - In hashed collection, two equal objects must have same hashcode, but unequal objects do not need to have different hashes
                     - Added object must generate same hashcode as others that are equal to it (hasCode method), and this hasCode will be used to find where to put object, and compare will test what is already there
                 - Performance of hashing found in the use of different 'buckets' for each hash. If not using hash for each bucket, and is only 1 bucket, need to compare for every element and the performance drops off
+                - When overriding equals() CANNOT return true if class being compared is subclass of itself
+                    - Unless class is final, in which case cannot be subclassed. Class that is final CANNOT be subclassed
+                    - Equals needs to be symmetrical; A must equal B and B must equal A - issue with subclass when sub is instance of parent but parent is not instance of sub
+                        - Avoid this byb making finals equal in the base class when so cannot be overridden
+                    - Rules for handling comparisons of subclass and base class:
+                        - If subclass does not have methods that change equality, allow subclass but equals() needs to be final to prevent being overridden
+                        - Subclass is different object, then override equals to make comparison between sub and base class return False
+                        - If neither true, prevent sub classing and force to use composition
+            - Make own class that is immutable and can be used as a key in map or element in a set
+                - If IS NOT immutable, need to override equals() and hashcode() to prevent odd behaviour and make sure elements get added correctly
 	     */
 
 	    HeavenlyBody temp = new HeavenlyBody("Mercury", 88);
