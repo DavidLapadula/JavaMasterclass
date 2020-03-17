@@ -8,6 +8,8 @@ public class Main {
 
     public static void main(String[] args) {
 	    /*
+	        - All collections can take a collection in constructor to create new collection; suggested to either make new collection when implementing interface or pass collection into constructor to make a new collection anyway
+	            - Only suggestion because this is interface (no constructor)
 	        - List: ordered without duplicates
 	        - Set: is a generic interface, NO DUPLICATES
 	            - Add, remove, clear, size, isEmpty, contains, methods
@@ -30,13 +32,18 @@ public class Main {
                 - When overriding equals() CANNOT return true if class being compared is subclass of itself
                     - Unless class is final, in which case cannot be subclassed. Class that is final CANNOT be subclassed
                     - Equals needs to be symmetrical; A must equal B and B must equal A - issue with subclass when sub is instance of parent but parent is not instance of sub
-                        - Avoid this byb making finals equal in the base class when so cannot be overridden
+                        - Avoid this by making finals equal in the base class when so cannot be overridden
                     - Rules for handling comparisons of subclass and base class:
                         - If subclass does not have methods that change equality, allow subclass but equals() needs to be final to prevent being overridden
                         - Subclass is different object, then override equals to make comparison between sub and base class return False
                         - If neither true, prevent sub classing and force to use composition
             - Make own class that is immutable and can be used as a key in map or element in a set
                 - If IS NOT immutable, need to override equals() and hashcode() to prevent odd behaviour and make sure elements get added correctly
+            - Bulk operations allow algebraic operations on sets
+                - Are destructive, they modify the set they are called upon
+                - Set Theory
+                    - Symmetric difference: removeAll - removes all elements of one from another
+                    - Asymmetric difference
 	     */
 
 	    HeavenlyBody temp = new HeavenlyBody("Mercury", 88);
