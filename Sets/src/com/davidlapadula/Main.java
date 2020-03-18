@@ -42,8 +42,9 @@ public class Main {
             - Bulk operations allow algebraic operations on sets
                 - Are destructive, they modify the set they are called upon
                 - Set Theory
-                    - Symmetric difference: removeAll - removes all elements of one from another
-                    - Asymmetric difference
+                    - Symmetric difference: retainAll() Union - intersection elements that appear in one or other but not both
+                    - Asymmetric difference: removeAll() - removes all the elements that are in the other set
+                    - containsAll() - is one set a superset of another. Does not modify, so not destructive
 	     */
 
 	    HeavenlyBody temp = new HeavenlyBody("Mercury", 88);
