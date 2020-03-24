@@ -61,7 +61,7 @@ public class Main {
 
         HeavenlyBody tempMoon = new HeavenlyBody("Moon", 27);
         solarSystem.put(tempMoon.getName(), tempMoon);
-        temp.addMoon(tempMoon);
+        temp.addSatellite(tempMoon);
 
 
         System.out.println("Planets");
