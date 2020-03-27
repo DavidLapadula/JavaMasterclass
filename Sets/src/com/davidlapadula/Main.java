@@ -3,89 +3,53 @@ package com.davidlapadula;
 import java.util.*;
 
 public class Main {
-    private static Map<String, HeavenlyBody> solarSystem = new HashMap<>();
+    private static Map<HeavenlyBody.Key, HeavenlyBody> solarSystem = new HashMap<>();
     private static Set<HeavenlyBody> planets = new HashSet<>();
 
     public static void main(String[] args) {
-	    /*
-	        - All collections can take a collection in constructor to create new collection; suggested to either make new collection when implementing interface or pass collection into constructor to make a new collection anyway
-	            - Only suggestion because this is interface (no constructor)
-	        - List: ordered without duplicates
-	        - Set: is a generic interface, NO DUPLICATES
-	            - Add, remove, clear, size, isEmpty, contains, methods
-	            - Cannot key from index; need to loop over it
-	            - Set cannot contain element of itself
-	            - Hashset: uses hashes to store items. Uses implementation of Hashmap by using key (element added to set) and dummy object as value)
-	            - Operations are very fast
-	            - Has iteration capability
-	            - Set theory
-	                - Union is set containing all elements from combining sets; because sets have no duplicates each element only appears once even if present in both sets, this is possible with Set interface
-	                - addAll() method can create set union
-                - Only REFERENCES to objects stored in the set, could appear in many sets/maps with only 1 instance
-                    - Reference to any data type (String, or Class ...) is the same size in memory. So only storing name instead of class adds complexity with no gain because need to retrieve it after
-                - If use own class for Key or Value, need to override equal() or else will allow duplicates because not evaluating as equal. If two objects compare equal must also override hashCode because equal objects must have the same hash
-                    - Base classes only use basic referential equality that only checks if reference is the same
-                    - When object generates hashcode that exists, uses compare to see if it is already thee, which is why it must be overridden
-                - In hashed collection, two equal objects must have same hashcode, but unequal objects do not need to have different hashes
-                    - Added object must generate same hashcode as others that are equal to it (hasCode method), and this hasCode will be used to find where to put object, and compare will test what is already there
-                - Performance of hashing found in the use of different 'buckets' for each hash. If not using hash for each bucket, and is only 1 bucket, need to compare for every element and the performance drops off
-                - When overriding equals() CANNOT return true if class being compared is subclass of itself
-                    - Unless class is final, in which case cannot be subclassed. Class that is final CANNOT be subclassed
-                    - Equals needs to be symmetrical; A must equal B and B must equal A - issue with subclass when sub is instance of parent but parent is not instance of sub
-                        - Avoid this by making finals equal in the base class when so cannot be overridden
-                    - Rules for handling comparisons of subclass and base class:
-                        - If subclass does not have methods that change equality, allow subclass but equals() needs to be final to prevent being overridden
-                        - Subclass is different object, then override equals to make comparison between sub and base class return False
-                        - If neither true, prevent sub classing and force to use composition
-            - Make own class that is immutable and can be used as a key in map or element in a set
-                - If IS NOT immutable, need to override equals() and hashcode() to prevent odd behaviour and make sure elements get added correctly
-            - Bulk operations allow algebraic operations on sets
-                - Are destructive, they modify the set they are called upon
-                - Set Theory
-                    - Symmetric difference: retainAll() Union - intersection elements that appear in one or other but not both
-                    - Asymmetric difference: removeAll() - removes all the elements that are in the other set
-                    - containsAll() - is one set a superset of another. Does not modify, so not destructive
-	     */
 
-	    HeavenlyBody temp = new HeavenlyBody("Mercury", 88);
-	    solarSystem.put(temp.getName(), temp);
+	    HeavenlyBody temp = new Planet("Mercury", 88);
+	    solarSystem.put(temp.getKey(), temp);
 	    planets.add(temp);
 
-        temp = new HeavenlyBody("Venus", 225);
-        solarSystem.put(temp.getName(), temp);
+        temp = new Planet("Venus", 225);
+        solarSystem.put(temp.getKey(), temp);
         planets.add(temp);
 
-        temp = new HeavenlyBody("Earth", 365);
-        solarSystem.put(temp.getName(), temp);
+        temp = new Planet("Earth", 365);
+        solarSystem.put(temp.getKey(), temp);
         planets.add(temp);
 
-        HeavenlyBody tempMoon = new HeavenlyBody("Moon", 27);
-        solarSystem.put(tempMoon.getName(), tempMoon);
+        HeavenlyBody tempMoon = new Moon("Moon", 27);
+        solarSystem.put(tempMoon.getKey(), tempMoon);
+        temp.addSatellite(tempMoon);
+
+        tempMoon = new Moon("Deimos", 1.3);
+        solarSystem.put(tempMoon.getKey(), tempMoon);
+        temp.addSatellite(tempMoon);
+
+        tempMoon = new Moon("Phobos", 0.3);
+        solarSystem.put(tempMoon.getKey(), tempMoon);
         temp.addSatellite(tempMoon);
 
 
-        System.out.println("Planets");
-        for (HeavenlyBody planet: planets) {
-            System.out.println("\t" +  planet.getName());
-        }
+        tempMoon = new Moon("Io", 1.8);
+        solarSystem.put(tempMoon.getKey(), tempMoon);
+        temp.addSatellite(tempMoon);
 
-        HeavenlyBody body = solarSystem.get("Earth");
-        System.out.println("Moons of " + body.getName());
-        for (HeavenlyBody jupiterMoon: body.getSatellites()) {
-            System.out.println("\t" +  jupiterMoon.getName());
-        }
-
-        Set<HeavenlyBody> moons = new HashSet<>();
-        for (HeavenlyBody planet: planets) {
-            moons.addAll(planet.getSatellites());
-        }
-
-        System.out.println("All Moons");
-        for (HeavenlyBody moon: moons) {
-            System.out.println("\t" +  moon.getName());
-        }
-
-        HeavenlyBody pluto = new HeavenlyBody("Pluto", 842);
+        HeavenlyBody pluto = new DwarfPlanet("Pluto", 842);
         planets.add(pluto);
+
+        HeavenlyBody earth1 = new Planet("Earth", 365);
+        HeavenlyBody earth2 = new Planet("Earth", 365);
+        // Allow for symmetric similarity
+        System.out.println(earth1.equals(earth2));
+        System.out.println(earth2.equals(earth1));
+
+        HeavenlyBody body = solarSystem.get(HeavenlyBody.makeKey("Mars", HeavenlyBody.BodyTypes.PLANET));
+
+        for (HeavenlyBody planet: planets) {
+            System.out.println(planet);
+        }
     }
 }
