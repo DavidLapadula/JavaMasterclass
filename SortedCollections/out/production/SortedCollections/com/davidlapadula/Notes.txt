@@ -4,10 +4,5 @@
     - unmodifiableMap() instead of returning new Map and tricking users into thinking they can modify, return readOnly.
         - Faster than copy because do not need to make a copy in memory
     - Unmodifiablemap is just view into underlying Map
-        - Only the collection is unmodifiable, the individual items can be modified when they are called.
-    - If nothing should be modified, than return unmodifiable options for collections and what they house; use an additional getter for this
 Linked HashMap/ HashMap
     - Maintains order of the keys
-Tree Map
-    - More computing because every time you add an item, compareTo() gets called to maintain the order of the items
-    - Checks list for place to insert next item

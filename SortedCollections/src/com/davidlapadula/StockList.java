@@ -6,7 +6,7 @@ public class StockList {
     private final Map<String, StockItem> list;
 
     public StockList() {
-        this.list = new HashMap<>();
+        this.list = new LinkedHashMap<>();
     }
 
     public int addStock(StockItem item) {
@@ -48,6 +48,14 @@ public class StockList {
         return Collections.unmodifiableMap(list);
     }
 
+    public Map<String, Double> PriceList() {
+        Map<String, Double> prices = new LinkedHashMap<>();
+        for (Map.Entry<String, StockItem> item : list.entrySet()) {
+            prices.put(item.getKey(), item.getValue().getPrice());
+        }
+        return Collections.unmodifiableMap(prices);
+    }
+
     @Override
     public String toString() {
         String s = "\nStock List\n";
@@ -58,7 +66,7 @@ public class StockList {
 
             double itemValue = stockItem.getPrice() * stockItem.quantityInStock();
             s = s + stockItem + ". There are : " + stockItem.quantityInStock() + " in stock. Value of items: ";
-            s = s + itemValue + "\n";
+            s = s + String.format("%.2f", itemValue) + "\n";
             totalCost += itemValue;
         }
 
