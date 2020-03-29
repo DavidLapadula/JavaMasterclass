@@ -1,0 +1,8 @@
+- Linked variants with an order; ordering usually chaotic with these two interfaces but linked version maintains order
+    - getOrDefault(): either return the item at the key of first arg or set item in second arg. Returns item either way
+    - toString() made for debugging, so should not override it to make long logs
+    - unmodifiableMap() instead of returning new Map and tricking users into thinking they can modify, return readOnly.
+        - Faster than copy because do not need to make a copy in memory
+    - Unmodifiablemap is just view into underlying Map
+Linked HashMap/ HashMap
+    - Maintains order of the keys
