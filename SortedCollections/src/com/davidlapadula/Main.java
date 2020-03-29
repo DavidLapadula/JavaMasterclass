@@ -23,12 +23,18 @@ public class Main {
         Basket davidBasket = new Basket("David");
         sellItem(davidBasket, "cake", 1);
 
+        Basket basket = new Basket("Customer");
+        sellItem(basket, "Cup", 100);
+        sellItem(basket, "Juice", 10);
+
+        removeItem(basket, "Cup", 40);
+
         for (Map.Entry<String, Double> price : stockList.PriceList().entrySet()) {
             System.out.println(price.getKey() + " costs " + price.getValue());
         }
     }
 
-    // Selling item, puts it in the basket
+    // Selling item, puts it in the basket AND reserves the stock of the stock item via the stocklist class
     public static int sellItem(Basket basket, String item, int quantity) {
         StockItem stockItem = stockList.get(item);
         if (stockItem == null) {
@@ -36,11 +42,32 @@ public class Main {
             return 0;
         }
 
-        if (stockList.sellStock(item, quantity) != 0) {
-            basket.addToBasket(stockItem, quantity);
-            return quantity;
+        if (stockList.reserveStock(item, quantity) != 0) {
+            return basket.addToBasket(stockItem, quantity);
         }
 
         return 0;
     }
+
+    public static int removeItem(Basket basket, String item, int quantity) {
+        StockItem stockItem = stockList.get(item);
+        if (stockItem == null) {
+            System.out.println("We do not sell this");
+            return 0;
+        }
+
+        if (basket.removeFromBasket(stockItem, quantity) == quantity) {
+            return stockList.unreserveStock(item, quantity);
+        }
+
+        return 0;
+    }
+
+    public static void checkOut(Basket basket) {
+        for (Map.Entry<StockItem, Integer> item : basket.Items().entrySet()) {
+            stockList.sellStock(item.getKey().getName(), item.getValue());
+        }
+        basket.clearBasket();
+    }
+
 }

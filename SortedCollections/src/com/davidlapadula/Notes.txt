@@ -6,6 +6,7 @@
     - Unmodifiablemap is just view into underlying Map
         - Only the collection is unmodifiable, the individual items can be modified when they are called.
     - If nothing should be modified, than return unmodifiable options for collections and what they house; use an additional getter for this
+        - If class does not have get method, than unmodifiable method should not have get either, or else will have access to items this way
 Linked HashMap/ HashMap
     - Maintains order of the keys
 Tree Map
