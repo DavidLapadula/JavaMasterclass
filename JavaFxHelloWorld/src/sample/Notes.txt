@@ -19,3 +19,35 @@
         - Create 'Scene' need to pass in root that will back the scene (root created by FXML load())
         -
     - FXML allows you to separate UI from Data, also easier to change when it is in the view
+
+- Layout
+    - Manage UI without worrying about resizing etc. without coding it
+    - Preferred size: operates at preferred size to operate properly
+    - Control placed into layout, then becomes a child of it; layouts ensure children display at preferred width/height
+    - Alignment specific how children are aligned, when there is empty space
+    - Controls will not stretch to fill extra space more than they need unless specified
+    - GridPane
+        - Default size is grid, each cell in R/C sized to fit children
+        - Do not specify R/C, will go into default position
+        - Width of column is width of the widest controller
+        - Height or row is height of the tallest controller
+        - Constraints class to set R/C exact sizes
+        - H and V alignment for position of element in cell
+    - Hbox/Vbox
+        - Layout horizontally/vertically depending on choice in either row/column, and each child is preferred size. Height size false means it will resize CHILDREN for extra height, true (default) and it will stretch to fill extra height
+        - Controls take up preferred width by default
+        - Need to set position when this is child of other element (like in one of the places of Gridpane)
+    - BorderPane
+        - Top/Bottom have preferred height and extend width of BP
+        - Left/Right have preferred with and height extends height of element
+        - Middle gets whatever is left
+        - Empty cell will get no space allocated, adjacent elements will assume the remaining space
+        - No alignment because you tell it where to put children; align
+        - Need nested layouts to get things into position; each position can only have 1 child
+        - Can set alignment of children in their position using BorderPane.alignment, even though cant set alignment of BorderPane element
+    AnchorPane
+        - Anchor children to edges, which will control what happens when it resizes
+    FlowPane
+        - Like H/Vbox except children will get wrapped when there is not enough space; wrap depends on orientation of the window (horizontal for row wrapping)
+        - TilePane is the same, except: every cell is allocated with the same width, cell size is determined by biggest element, and each element centered
+        - StackPane: operate in a stack, all are piled on top of eachother. Order they are in XML is order they are stacked in stack pane

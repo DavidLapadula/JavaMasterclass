@@ -18,7 +18,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         // Set root node for scene with XML
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FlowPane.fxml"));
 
         // Set root node with code insted of FMXL loader
 //        GridPane root = new GridPane();

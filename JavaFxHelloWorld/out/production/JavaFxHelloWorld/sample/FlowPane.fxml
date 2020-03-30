@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<!--<FlowPane xmlns="http://javafx.com/javafx"-->
+<!--          xmlns:fx="http://javafx.com/fxml"-->
+<!--          fx:controller="sample.Controller"-->
+<!--          orientation="HORIZONTAL">-->
+
+<!--    <padding>-->
+<!--        <Insets bottom="10" right="10" />-->
+<!--    </padding>-->
+
+<!--    <Button text="Button One"/>-->
+<!--    <Button text="Button Two"/>-->
+<!--    <Button text="Button Three"/>-->
+<!--    <Button text="Button Four"/>-->
+<!--    <Button text="Button Five"/>-->
+<!--    <Button text="Button Six"/>-->
+<!--    <Button text="Button Seven"/>-->
+<!--    <Button text="Button Eight"/>-->
+<!--    <Button text="Button Nine"/>-->
+<!--    <Button text="Button Ten"/>-->
+
+<!--</FlowPane>-->
+
+<!--<TilePane xmlns="http://javafx.com/javafx"-->
+<!--          xmlns:fx="http://javafx.com/fxml"-->
+<!--          fx:controller="sample.Controller"-->
+<!--          orientation="HORIZONTAL">-->
+
+<!--<padding>-->
+<!--    <Insets bottom="10" right="10" />-->
+<!--</padding>-->
+
+<!--<Button text="Button One"/>-->
+<!--<Button text="Button Two"/>-->
+<!--<Button text="Button Three"/>-->
+<!--<Button text="Button Four"/>-->
+<!--<Button text="Button Five"/>-->
+<!--<Button text="Button Six"/>-->
+<!--<Button text="Button Seven"/>-->
+<!--<Button text="Button Eight"/>-->
+<!--<Button text="Button Nine"/>-->
+<!--<Button text="Button Ten"/>-->
+
+<!--</TilePane>-->
+
+<StackPane xmlns:fx="http://javafx.com/fxml"
+           fx:controller="sample.Controller">
+    <Label text="The Label text" style="-fx-background-color: green"/>
+    <Button text="Button One" style="-fx-background-color: red"/>
+    <Label text="The Label text blue" style="-fx-background-color: Blue"/>
+</StackPane>
