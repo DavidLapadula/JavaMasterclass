@@ -1,0 +1,19 @@
+- Project > Open Module Settings > Project > Global Libraries > Select module added (Java Fx in this case) > Add to modules
+- Configure javafx settings in  module-info.java. Right click source > New > module-info.java
+
+- Overview
+    - MVC design pattern
+    - Code for UI, code for data separate with controller as middle
+    - Entry is class that extends Application
+        - Launch starts it, init() runs first, then start(), then end()
+        - init() and end() are empty in Application class, so need to override it for it to do anything
+    - Stage (Top Level)
+        - Container, or main window. Passed into start method
+        - Each stage requires a scene, and each scene requires a scene graph or controller for that section of the UI
+        - Parent descends from class, which is base class for scene graph nodes
+            - Nodes that descend from 'Parent' can have children in the same graph
+    - FMXL Loader
+        - Says which controller is for that class (fx:controller)
+        - load() will return scene graph, which has multiple nodes (UI components), and usually 1 root node
+        - Create 'Scene' need to pass in root that will back the scene (root created by FXML load())
+        -
