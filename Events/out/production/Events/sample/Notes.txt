@@ -1,0 +1,15 @@
+Events
+    - Procedural driven: run from entry point to last line
+    - Event driven: (UI apps) user dictates what event runs and when
+       - Initialization code; initialize() method called automatically and can be used to set initialization values
+       - Build UI, and then wait for user to make a choice on which event to run
+       - When closes, cleanup runs and unused code thrown out
+       - UI thread waits for user to make some action, and then any control raises event on UI thread
+            - Other parts of app that may handle that even would then run and event would be dispatched to event handler
+    - Use annotation to associate instance fields created in controller to the field in the FXML, use @FXML annotation
+        - When controller instantiated, injected reference to textfield into nameField variable (in controller)
+        - Matched FXML definitions to variables(in controller) by looking for matches between fx:id and variable name
+        - Also annotate event handlers, so its easy to see which methods associated with event in FXML
+    - Can add parameters to event handlers
+        - Can use ActionEvent passed into event handler to see properties of the event
+        - Can give controls id, make fields in controller with type of that control, and name the same as fx:id to use them in controller
