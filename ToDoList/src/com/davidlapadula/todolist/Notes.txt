@@ -1,0 +1,7 @@
+- By default Label control will show toString() of class passed in, so that needs to be overwritten
+- Selection model class whcih tracks which item in list has been selected
+- VGrow=Always: give other elements preferred height and rest goes the TextArea. Used to maximize space for TextArea when the rest of the items are small
+- Singleton
+    - Only 1 instance of a class created over the course of the application
+    - Creates single instance of itself, with private constructor to ensure no other instances made
+    - Static method to allow any class to get its method

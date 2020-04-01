@@ -1,0 +1,3 @@
+- By default Label control will show toString() of class passed in, so that needs to be overwritten
+- Selection model class whcih tracks which item in list has been selected
+- VGrow=Always: give other elements preferred height and rest goes the TextArea. Used to maximize space for TextArea when the rest of the items are small
