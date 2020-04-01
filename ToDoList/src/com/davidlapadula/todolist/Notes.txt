@@ -5,3 +5,4 @@
     - Only 1 instance of a class created over the course of the application
     - Creates single instance of itself, with private constructor to ensure no other instances made
     - Static method to allow any class to get its method
+    - Because cannot instantiate, need to go constructor > getInstance > getItems to get the data
