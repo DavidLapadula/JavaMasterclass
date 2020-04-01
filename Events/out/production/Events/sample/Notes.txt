@@ -13,3 +13,14 @@ Events
     - Can add parameters to event handlers
         - Can use ActionEvent passed into event handler to see properties of the event
         - Can give controls id, make fields in controller with type of that control, and name the same as fx:id to use them in controller
+
+UI Thread
+    - State of controls when user exits, need to handle data
+    - Wait for user input > event > see if application is listening for it > dispatches event to event handler > event handler runs on UI thread
+    - When handler is running, UI thread is busy and will ignore any instructions during that time
+    - Start new thread when current thread is busy
+        - Background thread: does work to enable UI thread to continue. When it is finished, it will inform UI
+    - Scene graph is not thread safe, assumes Nodes will only ever be updated by the UI thread (JavaFX application thread)
+        - Prevents different threads compromising what is occurring in the application, the integrity would be compromised
+    - Runnable: interface for when class instance runs on a thread, and class does inherit from Thread
+    - Platform.runLater: will put new Runnable class on UI thread queue to run later
