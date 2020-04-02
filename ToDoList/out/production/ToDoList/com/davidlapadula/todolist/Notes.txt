@@ -5,3 +5,10 @@
     - Only 1 instance of a class created over the course of the application
     - Creates single instance of itself, with private constructor to ensure no other instances made
     - Static method to allow any class to get its method
+    - Because cannot instantiate, need to go constructor > getInstance > getItems to get the data
+- Buffer is a container for data; alternative way to access data from a file
+- Override init() inherited from Application class, which runs when the program has started for the first time
+- Each FXML can only have 1 root node, or Scene graph
+- Dialogue pane (Layout Manager)
+    - Set header, graphic, buttons, and content - each which expect a control
+- Getting border parent instance, need to assign it an ID and then reference the ID in the controller

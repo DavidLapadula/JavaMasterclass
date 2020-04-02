@@ -25,7 +25,7 @@ public class TodoData {
         formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     }
 
-    // single method to return singleton and all properties
+    // single method to return singleton and all properties. It is static, so do not need instance of this class to gain access
     public static TodoData getInstance() {
         return instance;
     }
@@ -36,6 +36,10 @@ public class TodoData {
 
     public void setTodoItems(List<TodoItem> todoItems) {
         this.todoItems = todoItems;
+    }
+
+    public void addTodoItem(TodoItem todoItem) {
+        todoItems.add(todoItem);
     }
 
     public void loadTodoItems() throws IOException {

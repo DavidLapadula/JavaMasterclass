@@ -6,6 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class Main extends Application {
 
     @Override
@@ -19,5 +21,25 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
+    }
+
+    // Called automatically when the application is loaded
+    @Override
+    public void init() throws Exception {
+        try {
+            TodoData.getInstance().loadTodoItems();
+        } catch(IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Override
+    public void stop() throws Exception {
+        // Store items when application shuts down, makes the file if its not already there
+        try {
+            TodoData.getInstance().storeTodoitems();
+        } catch(IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
