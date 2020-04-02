@@ -3,12 +3,21 @@ package com.davidlapadula.todolist;
 import datamodel.TodoItem;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
+import javafx.util.Callback;
 
+import java.awt.*;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Month;
@@ -28,8 +37,21 @@ public class Controller {
     private Label deadlineLabel;
     @FXML
     private BorderPane mainBorderPane;
+    @FXML
+    private ContextMenu listContextMenu;
 
     public void initialize() {
+        listContextMenu = new ContextMenu();
+        MenuItem deleteMenuItem = new MenuItem("Delete");
+        deleteMenuItem.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                TodoItem item = todoListView.getSelectionModel().getSelectedItem();
+                deleteItem(item);
+            }
+        });
+
+        listContextMenu.getItems().addAll(deleteMenuItem);
 
         // event listener for when selected property of the list view changes
         todoListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TodoItem>() {
@@ -46,21 +68,56 @@ public class Controller {
         });
 
         // Data loaded in init method of main class, and then loaded using getter from the Singleton
-        todoListView.getItems().setAll(TodoData.getInstance().getTodoItems());
+        todoListView.setItems(TodoData.getInstance().getTodoItems());
         todoListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         todoListView.getSelectionModel().selectFirst();
+
+        todoListView.setCellFactory(new Callback<ListView<TodoItem>, ListCell<TodoItem>>() {
+            @Override
+            public ListCell<TodoItem> call(ListView<TodoItem> todoItemListView) {
+                ListCell<TodoItem> cell = new ListCell<TodoItem>() {
+                    @Override
+                    protected void updateItem(TodoItem item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty) {
+                            setText(null);
+                        } else {
+                            setText(item.getShortDescription());
+                            if(item.getDeadline().isBefore(LocalDate.now().plusDays(1))){
+                                setTextFill(Color.RED);
+                            } else if (item.getDeadline().equals(LocalDate.now().plusDays(1))) {
+                                setTextFill(Color.BLUE);
+                            }
+                        }
+
+                    }
+                };
+
+                cell.emptyProperty().addListener(
+                        (obs, wasEmpty, isNowEmpty) -> {
+                            if(isNowEmpty){
+                                cell.setContextMenu(null);
+                            } else {
+                                cell.setContextMenu(listContextMenu);
+                            }
+                        });
+
+                return cell;
+            }
+        });
     }
 
     @FXML
     public void showNewItemDialogue() throws IOException {
         Dialog<ButtonType> dialog = new Dialog<>();
-        // Get the main window of the Scene where the dialog is called from. 'Owner' being the calling class
         dialog.initOwner(mainBorderPane.getScene().getWindow());
+
         dialog.setTitle("Add New Todo Item");
         dialog.setHeaderText("Create a new Todo item");
+
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("todoItemDialog.fxml"));
-        // Get the pane and set the content as the root, which is the fxml file made to show modal dialogue info
+
         dialog.getDialogPane().setContent(fxmlLoader.load());
         dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
         dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
@@ -68,27 +125,34 @@ public class Controller {
         // Show and wait present blocking dialog
         Optional<ButtonType> result = dialog.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {
-            // Gets the controller initialized in the FXML file
             DialogController controller = fxmlLoader.getController();
-
             TodoItem newItem = controller.processResults();
-            todoListView.getItems().setAll(TodoData.getInstance().getTodoItems());
             todoListView.getSelectionModel().select(newItem);
-        } else {
-            System.out.println("Cancel pressed");
         }
     }
 
-    // Deprecated method for only changing on mouseClick instead of whenever the value changes
-    @FXML
-    public void handleClickListView() {
-        // return selected item; ony cast if dont specify type in ListView
-        TodoItem item = todoListView.getSelectionModel().getSelectedItem();
-//        StringBuilder sb = new StringBuilder(item.getDetails());
-//        sb.append("\n\n");
-//        sb.append("Due: ");
-//        sb.append(item.getDeadline());
-//        itemDetails.setText(sb.toString());
+    public void deleteItem(TodoItem item) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Delete Todo Item");
+        alert.setHeaderText("Delete item: " + item.getShortDescription());
+        alert.setContentText("Press OK to confirm");
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            TodoData.getInstance().deleteToDoItem(item);
+        }
     }
+
+//     Deprecated method for only changing on mouseClick instead of whenever the value changes
+//        @FXML
+//        public void handleClickListView() {
+//            // return selected item; ony cast if dont specify type in ListView
+//            TodoItem item = todoListView.getSelectionModel().getSelectedItem();
+//            StringBuilder sb = new StringBuilder(item.getDetails());
+//            sb.append("\n\n");
+//            sb.append("Due: ");
+//            sb.append(item.getDeadline());
+//            itemDetails.setText(sb.toString());
+//        }
 
 }

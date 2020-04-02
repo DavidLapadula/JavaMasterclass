@@ -4,3 +4,5 @@ Mechanic	Go get my car fixed and the mechanic	04-05-2020
 Test	This is a test item	07-04-2020
 New Item	This is a new item	08-04-2020
 Another item	This should be selected after I add it	23-04-2020
+Observable list	This is an observable list that should update automatically	14-04-2020
+Should be red text	This item is due today and should be red	04-04-2020

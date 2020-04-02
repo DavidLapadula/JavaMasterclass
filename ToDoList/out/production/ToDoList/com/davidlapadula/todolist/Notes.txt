@@ -12,3 +12,18 @@
 - Dialogue pane (Layout Manager)
     - Set header, graphic, buttons, and content - each which expect a control
 - Getting border parent instance, need to assign it an ID and then reference the ID in the controller
+    - initOwner(): Get the main window of the Scene where the dialog is called from. 'Owner' being the calling class
+    - getDialogPane(): gets the instance and then can call methods like setContent() and setButtonTypes()
+- Data Binding
+    - Bound to data, when data is updated there is a listener in the view so that it knows it has been updated
+    - Observable collection: control handles events raised when the data changes
+    - UI events
+        - Only run handler once because they are expensive
+        - 'Observable Collections' or 'FX Collections' have been optimized to reduce number of events raised when the collections have changed, unlike generic Collections class
+- Cell factory
+    - setCellFactory - pass anon. class that implements Callback interface. Takes ListView as first arg, and ListCell, which will be returned as second argument
+    - Override call, which takes list item as argument, and return instance of cell with updateItem overridden to custom specifications
+    - ListView uses instance returned from Callback to paint the cell; allows you to paint every item based on when it is called
+- Context Menu
+    - setOnAction of MenuItem allows for an anonymous EventHandler class that overrides handle() for specific behavior when clicked
+    - ContextItem class has addAll() method that can take MenuItem as argument
