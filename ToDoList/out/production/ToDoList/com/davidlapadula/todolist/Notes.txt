@@ -1,3 +1,4 @@
+- Need to provide (private) instance of field for fx:id in controller in order to use properties of element
 - By default Label control will show toString() of class passed in, so that needs to be overwritten
 - Selection model class whcih tracks which item in list has been selected
 - VGrow=Always: give other elements preferred height and rest goes the TextArea. Used to maximize space for TextArea when the rest of the items are small
@@ -27,3 +28,10 @@
 - Context Menu
     - setOnAction of MenuItem allows for an anonymous EventHandler class that overrides handle() for specific behavior when clicked
     - ContextItem class has addAll() method that can take MenuItem as argument
+    - In overridden call method when setting cell factory, can add listener to each cell, and then setContextMenu() can be used to add the menu to the cell
+- Focus determines which controls' event handler is raised
+- Sorted List
+    - Class for lists, because items are classes, needs comparator to tell list how to order list
+    - Anon. comparator class: return 0 if equal, -1 if o1 < o2, 1 if 01 > o2
+- Filtered List
+    - Provide data and anon. Predicate class, interface for testing filter, and override test to filter items
