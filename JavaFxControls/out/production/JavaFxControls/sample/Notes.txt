@@ -1,0 +1,30 @@
+Controls
+    - Only those that descend from Node can be added to a Scene
+        - Need fx:define to add elements like this that are not descended from Node
+    -$ used to find fx definition with ID
+    - Control is base class for UI elements user can interact with
+    - Control could be subclassed and interface methods overridden, or could make new interface for custom control
+    - Label
+        - WrapText to get it to wrap when resizing
+        - ToggleGroup does not descend from Node, so cannot be added to Scene
+        - Allows only 1 of child element to be selected at a time
+    - Connecting elements requires they descend from a common class, like ToggleGroup being made together in Toggle class
+    - TextField
+        - Change the columnSpan property to make field stretch out multiple columns and have many options
+    - ComboBox
+        - Use items and FXCollections to get items
+        - Value used to set default option
+        - Use editable to make options editable
+    - ChoiceBox
+        - For smaller lists - puts check in front of item that was selected
+    - Slider Control
+        - Can set min/max and which ticks to allow granular choice from the user
+    - Spinner
+        - Increment counter, can set min and max, and set editable to true to type number in there
+        - Must press enter to confirm value
+    - ColorPicker
+        - Saved colors will be saved under custom colors for the life of the application
+    - TitledPane
+        - This is a control, NOT a layout
+        - Can add accordion control - group of TitledPanes where you can only select one
+            - can set expanded of accordion match the id of a pane to open it by default

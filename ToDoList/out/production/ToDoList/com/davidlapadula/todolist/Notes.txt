@@ -1,0 +1,37 @@
+- Need to provide (private) instance of field for fx:id in controller in order to use properties of element
+- By default Label control will show toString() of class passed in, so that needs to be overwritten
+- Selection model class whcih tracks which item in list has been selected
+- VGrow=Always: give other elements preferred height and rest goes the TextArea. Used to maximize space for TextArea when the rest of the items are small
+- Singleton
+    - Only 1 instance of a class created over the course of the application
+    - Creates single instance of itself, with private constructor to ensure no other instances made
+    - Static method to allow any class to get its method
+    - Because cannot instantiate, need to go constructor > getInstance > getItems to get the data
+- Buffer is a container for data; alternative way to access data from a file
+- Override init() inherited from Application class, which runs when the program has started for the first time
+- Each FXML can only have 1 root node, or Scene graph
+- Dialogue pane (Layout Manager)
+    - Set header, graphic, buttons, and content - each which expect a control
+- Getting border parent instance, need to assign it an ID and then reference the ID in the controller
+    - initOwner(): Get the main window of the Scene where the dialog is called from. 'Owner' being the calling class
+    - getDialogPane(): gets the instance and then can call methods like setContent() and setButtonTypes()
+- Data Binding
+    - Bound to data, when data is updated there is a listener in the view so that it knows it has been updated
+    - Observable collection: control handles events raised when the data changes
+    - UI events
+        - Only run handler once because they are expensive
+        - 'Observable Collections' or 'FX Collections' have been optimized to reduce number of events raised when the collections have changed, unlike generic Collections class
+- Cell factory
+    - setCellFactory - pass anon. class that implements Callback interface. Takes ListView as first arg, and ListCell, which will be returned as second argument
+    - Override call, which takes list item as argument, and return instance of cell with updateItem overridden to custom specifications
+    - ListView uses instance returned from Callback to paint the cell; allows you to paint every item based on when it is called
+- Context Menu
+    - setOnAction of MenuItem allows for an anonymous EventHandler class that overrides handle() for specific behavior when clicked
+    - ContextItem class has addAll() method that can take MenuItem as argument
+    - In overridden call method when setting cell factory, can add listener to each cell, and then setContextMenu() can be used to add the menu to the cell
+- Focus determines which controls' event handler is raised
+- Sorted List
+    - Class for lists, because items are classes, needs comparator to tell list how to order list
+    - Anon. comparator class: return 0 if equal, -1 if o1 < o2, 1 if 01 > o2
+- Filtered List
+    - Provide data and anon. Predicate class, interface for testing filter, and override test to filter items

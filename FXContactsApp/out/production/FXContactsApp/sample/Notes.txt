@@ -1,0 +1,8 @@
+- Data classes should be the only ones that can touch the data
+    - Makes reusable if source of data model changes
+
+- SimpleStringProperty: JavaFx property that allows for data binding
+- Cell value factory to take advantage of data binding, Property Value factory works within cellValueFactory and has property field that matches name in controller
+- FxmlLoader used to get access to other controllers within the application associated with fxml file
+
+- Column resize policy of table view

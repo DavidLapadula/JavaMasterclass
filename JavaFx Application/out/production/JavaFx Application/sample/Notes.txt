@@ -1,0 +1,29 @@
+Theme
+    - Add stylesheet to FXML to override definitions, but theme set in initialization is application wide
+        - Inline > FXML stylesheet > Theme (precedence order)
+    - Set of CSS definitions
+    - Use stylesheets property on root node in scene for the style sheet to apply
+- id for CSS, fx:id for value in controller
+
+- Transforming Nodes
+    - Can be set with code by adding .set*() classes to instance variables in the controller
+
+- Only descendants of Node class can be added directly to Scene graph (i.e layout)
+    - So need to assign fx:id to root Node in Scene graph, create instance in the Controller
+    - The make instance in Controller and pass getScene().getWindow() methods of instance of FXML node into 'open' method of that class
+
+- Choosers
+    - Node descendant of root, so make class, and pass window from node where open functionality exists in controller
+    - FileChooser, and DirectoryChooser as options
+    - showOpenDialog(), or showSaveDialog()
+    - Add extension filters method FileChooser.ExtensionFilter to limit the types of files the user can add (showDialog) or save (showDialog)
+        - Filter does not prevent user from typing file in, worst case is they try top open an unsupported type
+        - Catch all filter with type *.* to give user option to have all files optional
+        - Can use open/save multiple dialog to allow working with multiple files, which will return a list
+
+- Internet Pages
+    - Hyperlink has 3 states: visited, unvisited, and clicked (change appearance)
+    - Need handler to go to page - can make any event, not just go to webpage
+    - Desktop.getDesktop(new URI()) open in systems default browser
+    - WebView
+        -
