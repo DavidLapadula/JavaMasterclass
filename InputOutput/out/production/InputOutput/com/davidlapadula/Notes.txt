@@ -1,0 +1,31 @@
+IO
+    - Byte or character data
+    - Character data can be read and edited in file, binary cannot 
+    - Binary for variable or classes, Character for things that need to be edited
+    - Main problems could be that the file is read only, or improper persmissions
+    - Finally clause runs after everything, appear after stack trace print because call stack only executes when it is done
+Sequential: data in definedd order in sequence 
+    - Like String
+Random access: can jump around file and read/write wherever you want. Can be read from wherever
+    - Like database
+- Need to implement all abstract methods of interface
+- Static initialization block for data that needs to share all instances of the same data across classes
+    - Runs when the data is loaded
+- Need to close a stream - file can be locked or can get resource leak
+- Cannot ignore checked exception
+- Alternative to catching exception is to throw them back up the call stack
+    - Throw exception up call stack so calling method can handle it
+    - Specify that function throws method
+        - This way calling method can either catch the exception or throw it back up the stack trace
+- Throw own exception to test
+- try-with-resources
+    - Syntax is try(<resource>) initialization code intry parentheses
+    - Put any stream in as resource and will ensure it is closed and that exception is thrown
+    - Difference to try/finally: if exception thrown from try and stream close in try-with-resources only try exception will be thrown up the stack, instead of exception thron from finally
+        - First error is probably the main problem
+- New Scanner (<where to read data from>); could be system.in or new FileReader depending on when data is coming from
+    - Source for scanner must implement 'Readable'
+    - Stream object implements 'Closeable', than close method of that class will automatically call close when the stream is done
+- Buffered Reader
+    - Reads characters and buffers them into array
+    - Faster becuase spends less time looking for file on the drive when using BufferedReader
