@@ -4,7 +4,8 @@ IO
     - Binary for variable or classes, Character for things that need to be edited
     - Main problems could be that the file is read only, or improper persmissions
     - Finally clause runs after everything, appear after stack trace print because call stack only executes when it is done
-Sequential: data in definedd order in sequence 
+    - Class has to be loaded BEFORE main method runs
+Sequential: data in defined order in sequence
     - Like String
 Random access: can jump around file and read/write wherever you want. Can be read from wherever
     - Like database
@@ -28,4 +29,22 @@ Random access: can jump around file and read/write wherever you want. Can be rea
     - Stream object implements 'Closeable', than close method of that class will automatically call close when the stream is done
 - Buffered Reader
     - Reads characters and buffers them into array
-    - Faster becuase spends less time looking for file on the drive when using BufferedReader
+    - Scanner parses input data, BR just reads sequences of characters and should be used if working with multiple threads
+    - Prevents excessive disk reading, only read if buffer is empty, otherwise read from memory buffer
+- Buffered Writer
+    - Data only put into buffer, and only written when buffer is full
+    - Prevents writing data often, which is slow
+- Static initialization created when class is loaded, cannot throw checked exception because potentially no class to catch it
+- Byte Streams
+    - Dealing with binary data - do not need to parse data
+    - Byte stream can be used for any primitve type
+    - Builds classes from reading the bytes
+    - DataOutputStream, BufferedOutputStream, FileOutputStream are the classes to work with for working with binary data
+    - Methods to write all primitive types from Binary data
+    - To parsing to get values String, Stream class deals with it
+    - Throw EOFException, subclass of IOException. End of file exception thrown when the stream runs out of data
+    - Object Input/Output stream
+        - Assembled into format that can be stored and then reassembled
+        - Serialization (interface): serialize object into storage to read it again
+        - Serial version UID when Serialization implemented: like id for that Serialization
+        - When object is Serializable, all its properties need to be Serializable as well, or else need to write code to serialize yourself
