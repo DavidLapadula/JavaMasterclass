@@ -1,0 +1,6 @@
+- Random Access File
+    - Reading sequentially does not require moving file pointer, but in RAF need to move the file pointer
+    - Second argument is read/write or single threads (synchronously); if async, you have to handle threads
+    - Random access disk access is expensive, so build index in memory as records are being made (required because index needs references to the records) THEN write the index to the file
+    - seek() will move pointer to a new offset
+    - cannot read and write objects
