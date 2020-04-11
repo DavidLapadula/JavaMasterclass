@@ -1,0 +1,68 @@
+File System
+    - Cannot have duplicate files because defined by path
+    - "/" for Linux and "\" for Win
+    - Absolute is one having root node
+- Filesystems.getDefault().getPath() with just file name will look in cwd
+    - getPath overloaded to provide path as first argument
+- Paths.get() will take abs path, or pass multiple arguments to create full path
+- Files.newBufferedReader to read a path, and then it gives you contents of file using readLine()
+- Get working directory using methods, more convenient because do not have to calculate path
+- toAbsolutePath() to get the absolute path for directory provided
+- Filesystems - normalize() to remove redundant calls when moving around directories
+- Paths
+    - Does not throw accurate exceptions, or errors
+    - Some methods not cross platform
+    - No symbolic links (file that points to another file)
+        - Walking directory tree is hard
+    - Cannot get metadata about a file
+    - Do not work well when working with a lot of data
+- nio.Files
+    - All methods static, so DO NOT need instance
+    - Doesnt know anything about file system, can make path to file that does not exist
+    - Files.exists(<path>) to see if path exists
+    - isReadable(), isWritable(), isExecutable() to check permission on files
+    - Optional 3rd argument StandardCopyOption.REPLACE_EXISTING to copy even if there is a file to avoid exception
+    - copy(<source>, <copy destination>): get path to each of files wanting to copy and use method as so
+        - Can also be used for directories, but will not copy files unless walk tree
+    - move(<source>, <copy destination>): same as copy except will move it. Need full path including filename
+        - give destination new file name in path if you want to rename it, if source and destination directory the same will edit name in place
+    - delete/deleteIfExists(<path to file>): will remove file
+    - createFile/Directory/Directories(<path to new file/dir>)
+- Get file attributes (metadata)
+    - BasicFileAttributes retrieves metadata from the, need instance and then call Files.readAttributes(<path>)
+        - methods available on Files passing in path, or get everything with BAF, and then same methods available on the return value
+- Reading Directories
+    - Files.newDirectoryStream(<dir>, <filter>)
+        - can iterate over return because implements 'Iterable'. Only returns direct descendants
+        - filter is glob, * for anything, *.dat, *.{dat, txt} - match pattern to file name
+        - can also make custom filter new DirectoryStream.Filter, and then implement accept() to pass in path and apply filter
+- File.separator or FileSystems.getDefault().getSeparator() to get separator
+- Temp files
+    - files.createTempFile/Directory(<prefix>, <suffix>): will create in default folder
+        - method is overloaded to provide directory to put the file
+    - FileSystems.getDefault().getFileStores/rootDirectories() get all drives
+- Walk file tree
+    - Files.walkFileTree(<path>, new PrintNames(), <levels to traverse/copy file>, <follow symbolic links>)
+         - where PrintNames extends SimpleFileVisitor, which implements FileVisitor
+         - if pass class that extends SimpleFileVisitor but COPIES using overridden methods, that works
+    - FileVisitor interface - run code at each stage of traversal
+        - preVisitDirectory(<dir reference>, <BAF>): before entries are visited
+        - postVisitDirectory(<dir reference): called after directory and descendants have been visited
+            - Called depending on what you want to do, if you want to copy use pre because needs to be there, want to delete use post
+        - visitFile(<file reference>, <BAF>): called to operate on the file
+            - can skipSiblings(): return from preVisit() and will ignore entire directory and postVisit will never be called
+            - skipSubtree() to skip directories
+            - terminate() to stop traversal
+        - return FileVisit.CONTINUE to continue walking tree after method returns
+    - Copy Files
+        - sourceRoot.relativize(<destination path>): create relative path between two directories
+        - rootPath.resolve(<path>): create the new path by taking part of path and resolving to another path instance
+        - save destinations sourceRoots in class because methods of FileVisit only passed dir
+- Mapping IO to NIO
+    - Better to use Path, more robust an can be used with NIO classes and methods
+    - new File(<File instance or string as path>, <relative path>): will resolve the path like resolve() of Path class
+    - pass empty string to File constructor and looks at working directory
+    - new File() will have list method that is array of strings, or listFiles() that is array of Files
+
+
+

@@ -1,0 +1,4 @@
+0,You are at a computer
+1,At the end of the road
+2,On top of a building
+3,In a valley

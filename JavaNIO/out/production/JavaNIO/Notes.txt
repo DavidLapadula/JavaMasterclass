@@ -1,0 +1,64 @@
+- Channel: source reading or writing data from
+- Buffer: where data is held before R/W - done automatically with NIO
+- Need to make FileInput/OutputStream stream, and then call get channel
+    - Each only open for either reading or writing
+- When you make a buffer, need to specify the size of the buffer to determine how many bytes are read at one time
+- Writing to the channel means reading from the buffer
+- Methods in files class are sequential
+- Files class from NIO
+    - Use FileInputStream to get a channel
+    - Can use readAllLines() to get the data from the file
+    - Each Files.write is an isolated event, so expensive (use getBytes() because writes bytes not a string)
+        - Need to pass parameter to append data instead of truncating existing data and starting again
+- Buffer
+    - Capacity: amount of elements it can contain
+    - Index: position of next element that can be read/written
+    - Mark: for reset(), will reset position to the mark
+- ByteBuffer
+    - flip() to reset buffer to 0, needed whenever switching from reading-writing
+        - Also required when switching from reading from buffer and writing to channel
+        - Potentially nothing happens with read/write because at the end of the buffer
+        - Call with each access of the buffer
+    - Make byte[] from string getBytes() and then wrap in ByteBuffer
+    - Starts at position 0, mark is undefined, capacity is byte array you passed in
+    - allocate() to reserve size in the buffer, and then use put()
+        - Wrap() resets the position to 0 automatically for byte arrays, and array passed automatically backs the buffer
+            - Takes care of flipping buffer
+    - Using channel.read() will read from the channel and write to the buffer, and getInt() will read from the buffer
+    - When put data into buffer, it changes the buffers position. Need to reset the position to 0 if you want it to start reading before a write
+    - After you write, index is at the length of everything that has been written. So if you wrote an int would be at 4 bytes
+    - Can pass second argument to put() to specify which index to start read/write
+    - Buffer overflow when try to put too much data thn was allocated in the buffer
+- Channel and output stream need to be closed unless using try-with-resource
+- When using a byte array to back the buffer, changes to read/write will modify that array
+    - Buffer not same as array in memory. If you write to the buffer, from the channel, will modify the array backing the buffer
+- Can use buffer.array() to get the byte array backing the buffer
+- Absolute vs Relative reads
+    - get/put calls from buffer without params are relative based on where index is in buffer, can pass parameter
+    - Would not need to flip buffer back to start because can get(0) to start from beginning
+    - Absolute indices then position is not updated
+- Need byte array when calling get() from buffer when getting a string
+- Put returns bytebuffer so calls to put() can be chained
+- Seekable byte channel (interface)
+    - Allowed to seek because has current position
+    - methods read(), write(), position(), truncate(), size()
+        - read and write update channels position accordingly. If APPEND mode used for write then will write at the end of data source and not position 0
+        - position() gets, position(<>) sets
+- Can calculate positions to write to using string.getBytes() and/or Integer.BYTES for size
+- Buffer is always being used because writing to channel is reading from buffer and reading from channel is writing to the buffer. So need to call flip() everytime
+- Files
+    - Copying:
+        - need 2 channels made from new RAF and then call getChannel to get access to the file
+        - destination.transferFrom(<source channel>, <position>, <bytes in file>)
+        - source.transferTo(<position>, <bytes in file>, <destination channel>)
+        - Start is relative from wherever file channel is, need to set it to 0 with position(0)
+- Pipe
+    - Move data one way between threads. Need writer and reader threads using Runnable
+    - Sink channel for thread to write to, source channel for thread to read from
+    - Create Pipe.SinkChannel with pipe.sink(), put data in buffer, and then use write() from sink channel passing in buffer to write to it
+    - Create Pipe.SourceChannel with pipe.source()
+
+
+
+
+
