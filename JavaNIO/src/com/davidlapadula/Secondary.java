@@ -34,6 +34,70 @@ public class Secondary {
             RandomAccessFile ra = new RandomAccessFile("data.dat", "rwd");
             FileChannel channel = ra.getChannel();
 
+//            Writing non-sequentially, calculate start positions first
+            byte[] outputString = "Hello World!".getBytes();
+            byte[] outputString2 = "Nice to meet you!".getBytes();
+            long str1Pos = 0;
+            long newInt1Pos = outputString.length;
+            long newInt2Pos = newInt1Pos + Integer.BYTES;
+            long str2Pos =  newInt2Pos + Integer.BYTES;
+            long newInt3Pos = str2Pos + outputString2.length;
+
+            ByteBuffer intBuffer = ByteBuffer.allocate(Integer.BYTES);
+//             Put it in buffer, then write to the channel
+            intBuffer.putInt(245);
+            intBuffer.flip();
+            binChannel.position(newInt1Pos);
+            binChannel.write(intBuffer);
+
+            intBuffer.flip();
+            intBuffer.putInt(-98765);
+            intBuffer.flip();
+            binChannel.position(newInt2Pos);
+            binChannel.write(intBuffer);
+
+            intBuffer.flip();
+            intBuffer.putInt(1000);
+            intBuffer.flip();
+            binChannel.position(newInt3Pos);
+            binChannel.write(intBuffer);
+
+            binChannel.position(str1Pos);
+            binChannel.write(ByteBuffer.wrap(outputString));
+            binChannel.position(str2Pos);
+            binChannel.write(ByteBuffer.wrap(outputString2));
+
+            RandomAccessFile copyFile = new RandomAccessFile("datacopy.dat", "rw");
+            FileChannel copyChannel = copyFile.getChannel();
+            channel.position(0);
+            long numTransferred = copyChannel.transferFrom(channel, 0, channel.size());
+//            long numTransferred = channel.transferTo(0, channel.size(), copyChannel);
+            System.out.println("Transferred: " + numTransferred);
+
+            channel.close();
+            ra.close();
+            copyChannel.close();
+
+//            Reading Backward
+//            ByteBuffer readBuffer = ByteBuffer.allocate(Integer.BYTES);
+//            channel.position(int3Pos);
+//            channel.read(readBuffer);
+//            readBuffer.flip();
+//            System.out.println("int 3 =" + readBuffer.getInt());
+//
+//            readBuffer.flip();
+//            channel.position(int2Pos);
+//            channel.read(readBuffer);
+//            readBuffer.flip();
+//            System.out.println("int 2 =" + readBuffer.getInt());
+//
+//            channel.position(int1Pos);
+//            channel.read(readBuffer);
+//            readBuffer.flip();
+//            System.out.println("int 1 =" + readBuffer.getInt());
+
+
+//            Reading Forward
             ByteBuffer readBuffer = ByteBuffer.allocate(100);
             // Read from channel and write to buffer
             channel.read(readBuffer);
