@@ -1,0 +1,27 @@
+- Exceptions
+    - Event that disrupts normal flow of execution
+    - Look before you leap (error handle)
+    - Easy to ask for forgiveness than permission (handle exception)
+    - Code executed in try fails, with throw exception that can be caught in the except
+    - Need subclass of exception to call
+        - Specific exception caught tells you something about what is going wrong
+- Stack trace and call stack
+    - Throw exception is to send it back to calling method. Propagate up the call stack
+    - Call stack: all method calls at execution
+    - Each thread has own call stack, and thread is shown at first line of stack trace
+    - Method called placed on the stack, and then when removed it is removed from the stack
+    - Exception thrown from calling method with error
+        - Extends 'Throwable', which fills in stack trace for exception, class that is thrown contains current stack trace
+        - Exception thrown, and runtime checks to see what can handle it. Each method on this stack gets the exception until one that can handle it is found
+            - Exception propagates up the call stack until it can be handled
+            - If nothing handles it, then stack trace is print and program stops
+            - Subclasses are only for granularity to differentiate between errors, mostly just delegate to super.
+                - Subclass exception calls super, the stack trace is available
+- Only catch exception if something to do with it, just propagate up to calling method
+- Try block scopes a variable
+- Exception handler should not raise another exception; less code in catch block to decrease chances of this happening
+- Throw Exception
+    - Make new Exception (specifically so calling method knows) and throw it from where method fails
+    - Each catch block that is chained will be checked to see if it handles it
+
+

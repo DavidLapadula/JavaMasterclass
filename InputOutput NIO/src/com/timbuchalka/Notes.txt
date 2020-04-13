@@ -1,0 +1,6 @@
+- Files class of NIO allows you to create BufferedWriter as long as give it a path instance, so need to use FileSystem getPath for file you are writing to first
+    - NIO classes work with 'Path' instances, not instance of 'File'
+- Can create object input/output stream from a path
+    - Use path instance to create output stream
+    - Wrap Files.newOutputStream in BufferedOutputStream, which is itself wrapped in ObjectOutputStream
+        - Can also use for InputStream, as long as it descends from Input|Output stream
