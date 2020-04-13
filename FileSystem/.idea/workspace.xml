@@ -2,47 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2035d56-c333-4e10-bd9f-3ebd5cae6f34" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/description.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/project-template.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FileSystem.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FileTree/Dir1/file1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FileTree/Dir1/file2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FileTree/Dir2/file1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FileTree/Dir2/file2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FileTree/Dir2/file3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FileTree/Dir4/Dir2Copy/file1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FileTree/Dir4/Dir2Copy/file2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FileTree/Dir4/Dir2Copy/file3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FileTree/Dir4/file3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FileTree/file1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FileTree/file2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WorkingDirectoryFile.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/FileSystem/META-INF/FileSystem.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/FileSystem/Notes.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/FileSystem/com/davidlapadula/CopyFiles.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/FileSystem/com/davidlapadula/Main$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/FileSystem/com/davidlapadula/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/FileSystem/com/davidlapadula/PrintNames.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Notes.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/davidlapadula/CopyFiles.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/davidlapadula/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/davidlapadula/PrintNames.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../JavaNIO/datacopy.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../JavaNIO/out/production/JavaNIO/com/davidlapadula/Tertiary$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../JavaNIO/out/production/JavaNIO/com/davidlapadula/Tertiary$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../JavaNIO/out/production/JavaNIO/com/davidlapadula/Tertiary.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../JavaNIO/src/com/davidlapadula/Tertiary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JavaNIO/data.dat" beforeDir="false" afterPath="$PROJECT_DIR$/../JavaNIO/data.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JavaNIO/out/production/JavaNIO/Notes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../JavaNIO/out/production/JavaNIO/Notes.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JavaNIO/out/production/JavaNIO/com/davidlapadula/Secondary.class" beforeDir="false" afterPath="$PROJECT_DIR$/../JavaNIO/out/production/JavaNIO/com/davidlapadula/Secondary.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JavaNIO/src/Notes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../JavaNIO/src/Notes.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JavaNIO/src/com/davidlapadula/Secondary.java" beforeDir="false" afterPath="$PROJECT_DIR$/../JavaNIO/src/com/davidlapadula/Secondary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ThreadCounter/Notes.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ThreadCounter/src/com/davidlapadula/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ThreadCounter/src/com/davidlapadula/ThreadColor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Threads/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Threads/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Threads/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Threads/Notes.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Threads/Threads.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Threads/src/com/davidlapadula/AnotherThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Threads/src/com/davidlapadula/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Threads/src/com/davidlapadula/MyRunnable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Threads/src/com/davidlapadula/ThreadColor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +45,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Examples/Dir2/Dir3" />
@@ -116,6 +92,7 @@
       <updated>1586619367537</updated>
       <workItem from="1586619368847" duration="4842000" />
       <workItem from="1586634588207" duration="7517000" />
+      <workItem from="1586786222910" duration="772000" />
     </task>
     <servers />
   </component>
@@ -147,5 +124,9 @@
       <screen x="2560" y="0" width="2560" height="1400" />
     </state>
     <state x="2560" y="0" width="1215" height="1387" key="dock-window-1/-2560.0.2560.1400/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1586634713390" />
+    <state x="662" y="320" key="new project wizard" timestamp="1586786397292">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="662" y="320" key="new project wizard/-2560.0.2560.1400/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1586786397292" />
   </component>
 </project>

@@ -1,0 +1,37 @@
+- Threads
+    - Unit of execution within process. Handle memory or IO. Main thread created automatically
+        - Each thread has stack, memory only for that thread
+    - Process: unit of execution with memory space
+    - Each process has own heap, and processes cannot share heaps or access those of others
+    - Every thread within process shares its memory and files
+    - Thread can only do 1 thing at a time, suspended while it is waiting
+        - Create other thread for long task, and free up main thread
+    - System schedules when they will run (no guaranteed order)
+    - Can setPriority(), but cant force threads to run in order, just a suggestion
+    - When reach end of run(), thread will terminate
+    - Need to call start(), if call run() will run on Thread that called it
+    - Sleep() to allow other thread to do work, or to wait, or to do something at interval
+    - OS dependant as to what happens, could not support what is being asked of it
+    - Could wake up periodically to check if there is work to do
+- Concurrency
+    - Progress can be made on more than 1 task
+    - One task doesnt have to complete before another can start
+- New thread class, can create instance of subclass and override 'run'
+    - start() to kick off thread.
+    - Need new instance of Thread subclass to execute start()
+    - Can use anonymous class, but have to start it immediately
+- Runnable
+    - Create a thread, but make class implement this interface and override run
+    - Pass new instance of class to Thread constructor
+    - Most methods of Java want instance of Runnable
+- Interrupt
+    - Stop thread because want it to stop
+    - Could catch interrupted exception, or run() checks to see if it has been interrupted
+    - Call interrupt on thread instance it wants to interrupt (needs instance)
+    - If catch Interrupted Exception, was interrupted and need to return
+- Join
+    - Join A TO B (A is calling the join), will wait for B to terminate before continuing execution
+    - Call join() of other thread you want to join current thread to
+        - Can pass timeout to join, A will wait for B to be done, or for terminate to happen
+
+

@@ -1,0 +1,9 @@
+Thread Variables
+    - Heap: all threads share this memory of process
+    - Stack: memory only for specific thread
+    - Local variables in Stack, instance variables in HEAP
+    - Multiple threads with instance variable, variable will be in process heap, same copy of variable across threads
+    - Thread can be suspended at any step of execution, even in multiple steps of for loop
+        - for loop is multiple steps like increment and then check condition
+        - One thread can be suspended between these steps, meaning the other other thread would not see the steps of the for loop that were skipped when the first thread was suspended
+    - "Thread interference" or "race condition": two or more threads WRITING a shared resource, both can read resource without issues
