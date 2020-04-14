@@ -1,0 +1,9 @@
+Producer/Consumer
+    - wait()
+        - Calling thread releases lock until other thread issues notification that something has happened with (notify())
+        - Call wait in for loop that is checking for condition is being waited on. Because when thread woken up, no guarantee is being woken up because condition is true
+            - So when wait returns, check condition at beginning of loop and check condition again, and wait again if condition is the same
+    - Atomic operations (happen all at once)
+        - R/W primitive, R/W reference variables, R/W volatile variables
+    - Call wait() when produce or consume cannot occur; so if buffer not empty cannot, should not be producing, if the buffer is empty cannot consume
+- Some collections are not thread safe; you are responsible for all threads using the list
