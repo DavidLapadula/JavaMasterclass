@@ -1,0 +1,2 @@
+- can setPriority() on thread. Just suggestion, not binding for order
+- Sync blocks NOT first come first serve, so setting priority can result in starvation
