@@ -1,2 +1,9 @@
 - can setPriority() on thread. Just suggestion, not binding for order
 - Sync blocks NOT first come first serve, so setting priority can result in starvation
+- Fair lock
+    - try to be first come first serve, just pass 'true' to Reentrant Lock
+    - trylock() not FCFS; fairness reduces performance because more processing to guarantee fairness
+- Livelock
+    - A loops until B finishes, B loops until A finishes. If both looping in a livelock. Threads not blocked, but try to respond to each other continuously
+    - Not blocked but dont progress
+
