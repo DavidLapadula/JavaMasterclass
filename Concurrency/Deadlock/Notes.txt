@@ -1,0 +1,13 @@
+- When thread is running objects synchronized method, no other thread can run sync method using same object
+- When sync on method, method needs to get lock on object it is using in method
+- Deadlock
+    - Multiple threads blocked on lock, multiple threads holding a lock that another thread wants
+    - Waiting threads will never run
+    - Usually caused by order threads are trying to acquire locks
+    - Solution
+        - Require all threads get locks in same order, so secondary thread either waits for other thread to release lock, instead of acquiring another lock the primary thread may need
+        - Make sure one thread cannot hold one of the locks and not the other
+- Starvation
+    - Rarely have opportunity to run, often occurs because of priority
+    - Sync. methods ARE NOT first come first serve
+    -

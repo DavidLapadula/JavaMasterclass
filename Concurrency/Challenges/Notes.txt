@@ -1,0 +1,27 @@
+- Challenge  1 & 2
+    - Start thread by extending Thread and implement run, and then calling start()
+    - Implement 'Runnable' on new thread with anonymous class and override run
+    - Prevent interference by synchronizing method, or object with 'this' that updates a field
+        - Sync as little as possible to prevent performance hit
+- Challenge 3, 4, & 5
+    - When using 'Reentrant' lock all threads need to compete for the lock, and use try/finally to ensure it is released
+    - When using trylock(), need to catch exception and only release lock if method returns true, meaning it received the lock
+- Challenge 6, 7
+    - Local variables are threadsafe because stored on thread stack. Will not interfere because ach have own copy
+    - If locks not released, can get into livelock where threads never progress because keep passing off processing but are not blocked
+- Challenge 8
+    - Dead lock when either thread will not release the lock that the other is waiting for
+    - Synchronized DOES NOT prevent deadlock, it only prevents interference by holding the lock and waiting until it is finished to release it
+    - Deadlock from SAME locks in DIFFERENT order from multiple threads
+        - When object calling sync method, it will require the lock for itself
+        - Could occur from over-synchronization
+        - Prevent circular calls from threads
+        - Reentrant lock will get you out of dead lock by preventing the critical code if it does not have the lock
+            - trylock() timeout will release whatever locks its holding, so thread that is waiting can run
+- Challenge 9
+    - synchronized() will acquire the lock on the object, even if its not calling object
+    - wait() tells calling thread to sleep, give up lock, and allow other thread to get it, until other thread calls notify
+    - wait() / notifyAll() must be called from within synchronized blocks
+        - wait() releases lock BEFORE sync block has executed, which can cause problems with multiple locks
+
+

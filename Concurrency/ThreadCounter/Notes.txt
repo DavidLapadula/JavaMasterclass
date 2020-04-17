@@ -1,0 +1,20 @@
+Thread Variables
+    - Heap: all threads share this memory of process
+    - Stack: memory only for specific thread
+    - Local variables in Stack, instance variables in HEAP
+    - Multiple threads with instance variable, variable will be in process heap, same copy of variable across threads
+    - Thread can be suspended at any step of execution, even in multiple steps of for loop
+        - for loop is multiple steps like increment and then check condition
+        - One thread can be suspended between these steps, meaning the other other thread would not see the steps of the for loop that were skipped when the first thread was suspended
+    - "Thread interference" or "race condition": two or more threads WRITING a shared resource, both can read resource without issues
+- Synchronization: controlling when can access data in the heap
+    - Synchronized method: only 1 can run at a time on a thread, and can only execute one synchronized method, and before doing so all other threads have to wait
+        - Use 'synchronized' keyword on method
+        - Variables referenced inside sync method are safe; in non sync method, could still have interleaving because referencing byb multiple threads
+    - Sync statement block: obj has intrinsic lock, sync statements that work with obj by making threads acquire lock, and only 1 thread can acquire lock at a time
+        - Local variables used in stack, so synchronizing these wont work because each thread makes their own copy, so own lock
+            - Reference stored in the Stack, value stored in the heap, so cannot synchronize but value will be in the heap
+    - Can sync static method, lock then owned by class of static method
+    - Only sync code that must be
+- Only 1 thread creates a constructor, and instance not available until constructor is finished anyway
+- 'Thread safe': all critical sections have been synchronized, so do not need to handle when multiple threads accessing same code

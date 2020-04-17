@@ -1,0 +1,45 @@
+- Thread Safe
+    - Thread calls method in class, not other threads can call method in class until first thread executed method
+    - But multiple methods in synchronized class can be run by different threads
+    - Thread can be suspended at random
+- Use Thread.sleep as simulation to give other thread access before it runs again
+- Synchronize on the instance that is being shared
+    - Also use synchronize on whole block of critical code
+    - Drawbacks of synchronization
+    - Block must be all in the same method
+        - Intrinsic lock not available, when hit sync code either execute from getting lock or wait. Cannot timeout if waited too long
+        - Multiple threads waiting for lock has no order, when thread was locked has no effect on when it gets lock
+- Threads that are locked waiting for object cannot be interrupted, they need the lock from the object before they carry on
+- Instead of sync. can use 'Lock' interface from 'Concurrent' class
+- Reentrant Lock
+    - If thread holding lock reaches object that requires same lock, it can continue to execute
+    - Threads need to compete for the same lock to prevent interference
+    - use lock() and unlock() before/after code you want to be locked, just like using synchronized block
+        - If calls lock() and it is not available, will sleep until it is available
+        - BUT need to call unlock() as it will not be released automatically
+    - Reentrant tracks how many times got lock, need to unlock(0 as many times as locked(). Not unlocked until lock count reaches 0
+    - Enclose code in try/finally because code can throw an exception, and want to release lock when throws
+    - Can keep all code together with locks, and ALL unlocks go in one place
+    - Reentrant lock accepts fairness parameter, to try and give lock to thread that has been waiting the longest
+    - trylock(<optional timeout>): see if lock is available, if available will get it automatically
+        - Set timeout: if thread still waiting for lock when timeout expires, it is interrupted and keeps executing
+    - getQueuedLink() to see how many threads waiting for a lock
+- ExecutorService Interface
+    - Manage threads for you. Handle scheduling and optimize creation of threads
+    - Threadpool: manage collections of threads; overhead for how many created, are running/blocked
+        - Limit on threads, asking to do task may not happen right away if thread count already at max
+    - Exec service needs to be shutdown even after threads terminated, use shutdown() and wait for all tasks terminate
+    - submit(), accepts callable object where managed thread service can return a value; override 'call' from callable to return value
+        - submit() must be of type 'Future', use get() to retrieve value returned from overidden call
+- ArrayBlockngQueue
+    - FIFO order when implementing this interface
+    - Do not need buffer lock
+    - Is bounded, so need to pas in how many elements it can hold
+    - put(), take(): will block when queue is locked (thread safe)
+        - will not throw exception if operation cannot be performed because queue locked by other thread
+    - Still may need synchronization because thread safe means method called by thread will finish before another thread can run method in class
+        - BUT threads can be suspended BETWEEN method calls of a thread safe class
+            - Still need to synchronize on the instance being shared
+
+
+

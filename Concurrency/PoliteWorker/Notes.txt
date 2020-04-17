@@ -1,0 +1,23 @@
+- Livelock
+    - No resource is blocked, but constantly try to respond to each other. Can keep processing but never make progress
+    - Anytime thread has to wait for another thread and dont block. Similar to deadlock but state of processes change without getting any futher
+        - Synchronization and locking will block by locking the code the other thread is waiting for
+- Slipped Condition
+    - Suspended between reading a condition and acting upon it
+    - Threads can interfere with each other when checking and setting a condition
+    - Race condition/Interference/Slipped require code to be synchronized in the right order, and locks need to be set and unset in the right order
+- Thread can be SUSPENDED in the middle of performing an action, so it will not complete and then come back later
+- Can get memory inconsistency when multiple threads R/W same variable
+    - Each thread has CPU cache, with copies of values in main memory. Multiple CPU's, the cache's can become out of sync
+    - When use volatile keyword, guarantee to write to main memory after cache
+    - Multiple threads on 1 value, interference between R/W could get stale data even if volatile and writing directly to main memory
+        - common use is R/W int or long, as using volatile will make them atomic, but STILL need to be synchronized to prevent stale data
+- Java.util.concurrent.atomic: classes that guarantee operations are atomic
+    - Lock free thread safe on single variables - do not need to be synchronized
+    - Not sub for 'Integer' class: use when thread updating variable that depends on existing variable
+    - compareAndSet(<expected>, <new>) Only sets new if current is equal to expected
+
+
+
+
+

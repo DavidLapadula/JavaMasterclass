@@ -1,0 +1,21 @@
+- Task class implements Runnable so can be used in same place
+    - Need to override call
+    - Ex. JavaFX controls
+        - Can only access controls on Main thread because they are not thread safe. All code that touches UI must run on FX main thread
+    - Platform.runLater(): will run task on the main JavaFX application thread
+- DataBinding
+    - Task has 'value' property that is returned by the task
+    - Can bind itemsProperty() of data to valueProperty() of list, so when data changes so does UI
+    - updateProgress(<current prog>, <max prog>) to determine progress.
+        - Bind progressBar property to progress property of Task to join them
+    - updateMessage(<msg>) of Task class to set a message and then bid it to a UI element
+- Service
+    - Execute task on background thread; need to subclass service class
+        - Need to override createTask() which returns a task that does some processing
+        - Service starting will call createTask
+    - Can restart/cancel service unlike Task
+    - JavaFx run time will manage threads for you when using the service
+    - After completed in ready state to run, succeeded state after it has run
+    - Class allows us to run methods in different states (setOnRunning, setOnSucceeded)
+        - Need anonymous event handler and override handle() to change when state changes
+    - service has runningProperty() that can be bound to elements in the UI like visibleProperty()
