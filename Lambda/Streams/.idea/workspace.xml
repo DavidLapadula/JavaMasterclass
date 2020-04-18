@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="832217fb-34dc-46c7-b467-661587a1a5f9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../ButtonFX/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ButtonFX/.idea/ant.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ButtonFX/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ButtonFX/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ButtonFX/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ButtonFX/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ButtonFX/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ButtonFX/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ButtonFX/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ButtonFX/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ButtonFX/ButtonFX.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ButtonFX/src/sample/Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ButtonFX/src/sample/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ButtonFX/src/sample/sample.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Employees/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Employees/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Employees/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Employees/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Employees/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Employees/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Employees/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Employees/Employees.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Employees/src/com/davidlapadula/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Employees/src/com/davidlapadula/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Start/Start.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Start/src/com/davidlapadula/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Streams.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/davidlapadula/Department.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/davidlapadula/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/davidlapadula/Main.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1aiqOZWMpl54W32lvjorXTw9uXB" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="flattenPackages" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.davidlapadula.Main" />
+      <module name="Streams" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="832217fb-34dc-46c7-b467-661587a1a5f9" name="Default Changelist" comment="" />
+      <created>1587228730868</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1587228730868</updated>
+      <workItem from="1587228732141" duration="4064000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1085" y="406" key="#com.intellij.ide.util.MemberChooser" timestamp="1587238660565">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1085" y="406" key="#com.intellij.ide.util.MemberChooser/-2560.0.2560.1400/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1587238660565" />
+    <state width="2517" height="388" key="GridCell.Tab.0.bottom" timestamp="1587239545239">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="388" key="GridCell.Tab.0.bottom/-2560.0.2560.1400/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1587239545239" />
+    <state width="2517" height="401" key="GridCell.Tab.0.bottom/2560.0.2560.1400/0.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1587229338697" />
+    <state width="2517" height="388" key="GridCell.Tab.0.center" timestamp="1587239545239">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="388" key="GridCell.Tab.0.center/-2560.0.2560.1400/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1587239545239" />
+    <state width="2517" height="401" key="GridCell.Tab.0.center/2560.0.2560.1400/0.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1587229338697" />
+    <state width="2517" height="388" key="GridCell.Tab.0.left" timestamp="1587239545239">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="388" key="GridCell.Tab.0.left/-2560.0.2560.1400/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1587239545239" />
+    <state width="2517" height="401" key="GridCell.Tab.0.left/2560.0.2560.1400/0.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1587229338697" />
+    <state width="2517" height="388" key="GridCell.Tab.0.right" timestamp="1587239545239">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="388" key="GridCell.Tab.0.right/-2560.0.2560.1400/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1587239545239" />
+    <state width="2517" height="401" key="GridCell.Tab.0.right/2560.0.2560.1400/0.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1587229338697" />
+  </component>
+</project>

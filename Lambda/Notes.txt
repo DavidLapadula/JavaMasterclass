@@ -1,0 +1,63 @@
+- Labmda easier to handle interfaces with only 1 method or anonymous classes (Functional interfaces)
+    - Argument List, Arrow Token, Body is code to run
+    - Match Labmda expression to where it is used (in a constructor) and will implicitly implement methods interface requires
+        - Curly braces for multiple lines
+        - Only need parentheses for 0 or more than 1 parameter
+        - Method parameters become argument list for lambda
+        - Compiler can sometimes infer type required so can leave types out
+        - Labmda expression will map to an interface based on where it is used
+- If interface has more than on method, but all but 1 have default implementation then is functional interface and can still use lambda because only NEEDS 1 method
+- Single line does not require return; if body evaluates to statement that is a single value, return is assumed and return value is what is produced by method
+- In UI programming can replace anonymous class with lambda
+- Lambda IS NOT class and does not create one, treated like a nested block
+	- Scope is that of enclosing block
+	- Variable in lambda has to be effectively final and not change. Lambda is processed, variable is set, and cannot change after that
+- Code in nested block can reference variables defined in nested block
+- Local variables must be final in anon class becuase variable does not belong that that class instance
+	- Runtime needs to know what value to use when that class is run
+- Exceution of enclosing scope does not mean lamdba defined/changed variables dissapear if lambda has not run yet
+- In for loop, new copy of local variable made in each iteration so can reference in Lambda.
+- Iterable for each accepts lambda with curly braces like JS
+- Functional programming: part of declarative, focused on returning results and not state changes or mutable data
+- util.Functions: interfaces dictate nothing (unlike runnable) but are for structure of lambda, where lambda implements
+	- Functional IF. only require 1 method that needs to be implemented
+	- Lambda expression must map and pass the correct argument. Some use Generics for type, some care about the type passed
+	- Ex. forEach() takes a Consumer, which lambda evaluates to 
+	- Consumer accepts 1 arg and then performs action() (fn that must be implemented) on arguments passed in
+	- Predicate.test() for boolean value to check. Lambda will map to predicate, and argument passed will be used to test
+		- SAME as passing anon Predicate class and overriding test b/c lambda will implement the one method
+		- Can chain Predicates
+	- Still need to call method implemented like action() or test() 
+		- Could chain with and(), or() negate() etc. 
+	- Supplier:  returns value based on parameter passed in and get() to return
+	- Function IF <arg type, return type>: takes 1 parameter, returns value with apply() but can change what function does based on what is passed in
+		- Can also pass in function to method, and then call apply in the method
+	- Chain functions with andThen(), return is operated on by next value in chain	
+	- BiFunction to accept multiple parameters, but then it has to be first in chain b/c using andThen() requires only 1 param
+	- Unary: applyAsInt() to increment
+- Stream
+	- Sequence of computations chained together, for sequential operations
+	- Stream.of(<>) to make own stream, just not mixed types. 
+	- concat() to join streams together
+	- stream() uses object references to create stream from collection. Call stream() first
+		- Objects in collection must be stateless (like depending on variable values) and cant change. Each indpendant step
+		- Class::Method for method reference, using static method from objects
+		- map() accepts function (or lambda that accepts 1 arg and returns 1 value to MATCH PATTERN)
+			- To operate on every element passed and returns it, returns a stream
+	- If use method reference, do not need to pass parameter because compiler can infer it from what is being operated on
+	- Terminal operation, returns void or non stream. Stream pipeline has to end, unlike intermediate operations
+	- peek() to evaluate, will return a new stream and is intermediate
+- FlatMap
+	- Takes an object and will return a stream, can then chain methods after than intermediate method
+	- Can flatten nested lists, make stream when list is NOT source
+	- collect(): make stream into different type of result. Is terminal fn that takes Collectors.toList(). Allows you to make list you can use
+- Reduce
+	- Elements from a stream into 1 result, using condition to reduce
+- Lazily evaluated: nothing happens until there is a terminal operation
+		
+
+
+
+	
+
+
