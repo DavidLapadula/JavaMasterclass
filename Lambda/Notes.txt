@@ -29,7 +29,7 @@
 		- Can chain Predicates
 	- Still need to call method implemented like action() or test() 
 		- Could chain with and(), or() negate() etc. 
-	- Supplier:  returns value based on parameter passed in and get() to return
+	- Supplier:  returns value (creates = object) based on parameter passed in and get() to return
 	- Function IF <arg type, return type>: takes 1 parameter, returns value with apply() but can change what function does based on what is passed in
 		- Can also pass in function to method, and then call apply in the method
 	- Chain functions with andThen(), return is operated on by next value in chain	
@@ -47,6 +47,7 @@
 	- If use method reference, do not need to pass parameter because compiler can infer it from what is being operated on
 	- Terminal operation, returns void or non stream. Stream pipeline has to end, unlike intermediate operations
 	- peek() to evaluate, will return a new stream and is intermediate
+		- Could print in the middle of a stream to debug
 - FlatMap
 	- Takes an object and will return a stream, can then chain methods after than intermediate method
 	- Can flatten nested lists, make stream when list is NOT source
