@@ -7,13 +7,13 @@
 	- . is wildcard for any charcter
 	- ^ inside brackets NEGATES whatever is inside, not xyz where [^xyz] 
 	- \d for digit \\D for non, \w for a-zA-s0-9_, \\W for non
-	- \s for all spaces \\S for non, tab, or new line
+	- \s for all spaces \\S for non, tab, or new line (they all count as whitespace
 	- \b match boundaries of words, or surround words with tages
 - Boundary matchers: look for boundaries in string
 	- ^ match chars that follows at START of string. Goes at beginning of string
 	- $ match strings that end with pattern, goes at end of string
 		- Start with ^ or end with $ means string must start with and/or end with entire pattern so nothing before/after
-	- [] match whatever is in brackets
+	- [] match is a character class
 		- examines any individual character
 		- x-y for alphanum to capture anything in range, multiple can be stacked sode by side
 		- [<>][<>] anytime any letter in first is followed by any in second
@@ -44,7 +44,6 @@ Logical Operators
 - Lookahead does not consumer characters, it can match nothing. 
 	- Do not match character that they match
 	- (?xyz) lookahead after following character, add ! after ? for negative lookahead, and = for positive to match char but do not include
-	- 
 
 	
 
