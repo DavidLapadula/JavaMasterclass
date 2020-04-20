@@ -1,0 +1,52 @@
+- String literal is just a string
+- replaceAll(search, replace)
+- String.matches(str) will return boolean
+- matches(regex): return true if it matches
+	- String as a whole has to match expression
+- Character class: look for sets of chars. Capital is opposite of what lower case matches
+	- . is wildcard for any charcter
+	- ^ inside brackets NEGATES whatever is inside, not xyz where [^xyz] 
+	- \d for digit \\D for non, \w for a-zA-s0-9_, \\W for non
+	- \s for all spaces \\S for non, tab, or new line
+	- \b match boundaries of words, or surround words with tages
+- Boundary matchers: look for boundaries in string
+	- ^ match chars that follows at START of string. Goes at beginning of string
+	- $ match strings that end with pattern, goes at end of string
+		- Start with ^ or end with $ means string must start with and/or end with entire pattern so nothing before/after
+	- [] match whatever is in brackets
+		- examines any individual character
+		- x-y for alphanum to capture anything in range, multiple can be stacked sode by side
+		- [<>][<>] anytime any letter in first is followed by any in second
+- Quantifiers
+	- {} How many times it can occur, come after character it applies to
+		- {x, y} occur x to y times
+       	- + Just one or more after the character it matches
+	- * 0 or more of preceding token
+	- () matching group
+	- ? make greedy lazy, so 0 or 1 occurence
+		- Greedy: grab as much as possible to get match, Lazy: grab as little as possible to get match
+- Use Pattern.compile() to make regex a pattern to work with Matcher class, which works with classes that implement char sequence IF
+	- Use Matcher for multiple occurences of pattern, or same pattern for multiple sequences
+	- Pattern.compile() to convert to pattern, Pattern(instance).matcher(text), Pattern(Instance).matches will return boolean
+		- Wants to match ENTIRE text, can use .* to match anything before or after
+	- Matcher have internal state, and they only occur once, can reset() to start over internal state
+	- match() will look for occurence, when finds match object changes state so can use start() and end() on match to find index of first nad last char in matches
+	- find() to look for pattern. Can loop over for every occurence, and each OCCURRENCE can have group
+	- group() to work with group, optional int parameter for group method, so define 3 groups ()()(), use group(2) for whats in second parentheses
+		- Could be group within matching string, where string matches but group can be isolated. "[a-z]\\.(\w)" whole string will match but can look for character
+	- replace() to also available in this class
+Logical Operators
+	- AND implicit, ABC means A and B and C
+	- OR: | used like [D|d] avid to match case insensitive David
+	- NOT
+		- ^ negate when first character in regex when in [], but this requires a character to be there
+		- ! negative so !x
+- Lookahead does not consumer characters, it can match nothing. 
+	- Do not match character that they match
+	- (?xyz) lookahead after following character, add ! after ? for negative lookahead, and = for positive to match char but do not include
+	- 
+
+	
+
+		
+ 
