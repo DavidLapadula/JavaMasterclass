@@ -19,4 +19,28 @@
 - Smart Step into: which method to step into (Run > Smart Step into)
 - Set variable values on the fly. Right click and 'Set Value' to test based on value without restarting
 - Junit
-	- 
+	- Unit testing: unit refers to a method, run them in automated fashion
+	- Alt+Enter from class name to create test. The File>ProjectStructure>jUnit and select compile so added to path at compile time
+		- Need test annotation on test method, must be public and return void
+	- Empty method is a 'stub', fail by default so empty method does not return a pass
+	- Test assertion against certain output, need to test against assertion in order to catch it. Could have bug not tested for
+		- assertEquals(), assertNotNull/Null(), assertTrue/False(<mssg>, value) if fails then message will show, assertNotEquals(), assertArrayEquals() b/c assertEquals only works on arrays if are the same
+		- assertSame/NotSame() for same instance, not just identical
+		- Best practice is 1 test per method
+	- Test method should be self contained and be independant of each other. Should be able to run and pass on their own
+	- If need instance variable, could make instance for all testing
+	- Name of test should indicate type of test
+	- @Before/After runs before every UNIT test, before/afterClass for before or after test has been completed
+		- annotation used to determine when a test runs
+		- use Before for fresh copy of instance class before every test runs, just need to initialize before tests and make new instance for every test 	
+	- Tests are spooled with IO thread, so may show up out of order but execute in the correct order
+	- Method 'throws' Exception when it calls method that throws exception
+	- Parameterized: put param in annotation as expected = <Some Exception> to catch exception that may br thrown by methods in the test
+		- Annotate class definition @RunWith(Parameterized.class) to show running with parameters
+		- Need @Parameterized.Parameters annotated class that returns a collection for parameters want to test and their value
+			- Make new instance of class for each test and Constructor of class made for each test. Make instance variables that will be populated by values in collection
+			- When run test instance variables will be populated by values from parameterized collection and can be used in test
+- Challenges
+	- Increment in loop REASSIGNS value to i
+	- Use parameterized Test(expected=Exception.class) and test method has to throw the exception. So because method throws and expecting the test will pass
+	- In parameterized class use @Before for setup to ensure each constructor gets fresh value
