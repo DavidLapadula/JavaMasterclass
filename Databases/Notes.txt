@@ -1,0 +1,67 @@
+- Entire file in sqlite. NOT client/server
+- Dictionary: structure and types in the data
+- Table: collection of related data
+- Field: basic unit of data (name, type)
+- Row/Record: set of data for all columns, or 1 entry
+- Linking table to relate the data between two tables; prevent clutter from table with FK's 
+	- Normalization: remove duplicate and unnecessary data
+- View: look at data with multiple tables that have been joined
+	- Virutal table, can't modify but query as if were a table
+	- CREATE VIEW name AS <query>
+		- Can then query view, which is combination of query, so do not need to re-execute
+		- Good way to give read ability to some people without seeing all the data, or the actual data
+- Commands: capitalize reserved words
+	- CREATE table <name> (column name, column type);
+	- INSERT into <table> (column name) values (column value)
+		- If providing all fields do not need column names 
+	- SELECT (DISTINCT) * from <table>	
+		- If join can use properties from either table
+		- Distinct flag will prevent duplicates
+	- UPDATE <table> SET column=value WHERE update condition
+	- DELETE FROM <table> where delete condition
+	- ORDER BY condition(s); (uses natural order of values)
+		- COLLATE NO CASE to ignore
+		- ASC/DESC to describe order
+		- Multiple columns will order by groups of each condition
+		- Can add to the end of any query
+	- JOIN <table to join> on <select table value> = <joined table>.key
+		- Can select column of table using <table.column>
+		- Default join is INNER
+	- WHERE
+		- Can use wildcard to match parts of string when do not know: WHERE table.column LIKE "%<partial string>%"
+			- % %: can leave out start or finish if know how a string starts or finishes
+			- LIKE not case sensitive
+			- ? means 0 or more
+	- DROP VIEW/TABLE to remove
+	- COUNT to get amount
+	- UPDATE <table> set <value>
+	- IF NOT EXISTS to prevent error when running rpogram with table already
+- Columns have data type, but is not enforced. Only because uses SQL syntax
+	- NOT NULL means you cannot store blank area of this record
+	- No alter table for changing the type
+- .backup <file to back up to>, .restore <file used>, .tables to list tables, .schema for structure commands, .dump schema + commands to populate
+- .sql means has a script
+- Key is index, sorted, for searching and querying
+	- Make data ordered on the column with the key
+	- PK must be unique, sqlite3 autoincrement for FK is automatic, but other DB is not
+- Relational DB based on set theory, order is undefined
+- Stored procedures: fn to store queries
+	- Only SQL where db server running on other machine and stored procedure will run on that server, sqlite all running on one machine and embedded in programs
+- JDBC: Java database connectivity. Middle between java and data source
+	- Need driver for that data source to interact with JDBC
+	- Connection stream to connect to database, can specify attributes like U and PW
+		- JDBC driver docs to findout
+	- java.sql classes for connecting like DriverManager and Connection
+	- Statement object with conn.createStatement give statement object and use execute() on that instance
+		- execute() retun bool depending on statement returns instance of result set class
+		- Statement instance can only ever hasve 1 active result set
+		- Need new instance of ResultSet to call getResultSet() from execute(),is iterable for each result and can call getString/Int(<column>/<index>) for value
+			- Result set cursor starts before first record, moves to each record, and calling get() will return value from record at cursor position
+		- Reuse statement instance will close ResultSet and open new one. Results of first query need to process before next
+	- try-with-resources will close connection automatically when done
+	- Sometimes connection does not commit changes automatically and need to do it manually
+	- Close statement instance first and then db connection
+	- Can use executeQuery() which will return result set in one step
+	- Use constant instead of hard coding, and use method for multiple inserts
+- Classes that use method in data model package SHOULD NOT know implementation details of model
+	- Return data only (through classes) just in case source of data changes
