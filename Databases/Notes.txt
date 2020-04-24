@@ -36,6 +36,8 @@
 	- COUNT to get amount
 	- UPDATE <table> set <value>
 	- IF NOT EXISTS to prevent error when running rpogram with table already
+	- MIN/MAX(<col name>): get the min value in that column
+	- AS: rename result to make it easier to get from result set
 - Columns have data type, but is not enforced. Only because uses SQL syntax
 	- NOT NULL means you cannot store blank area of this record
 	- No alter table for changing the type
@@ -59,9 +61,21 @@
 			- Result set cursor starts before first record, moves to each record, and calling get() will return value from record at cursor position
 		- Reuse statement instance will close ResultSet and open new one. Results of first query need to process before next
 	- try-with-resources will close connection automatically when done
+		- statement type will close result set associated with it
 	- Sometimes connection does not commit changes automatically and need to do it manually
 	- Close statement instance first and then db connection
 	- Can use executeQuery() which will return result set in one step
 	- Use constant instead of hard coding, and use method for multiple inserts
 - Classes that use method in data model package SHOULD NOT know implementation details of model
 	- Return data only (through classes) just in case source of data changes
+	- Calling method should know nothing of where data is coming from
+	- Column indices (use constants) are more efficient, but cannot call by type. But index of col in result set NOT in table
+		- Using index gives more precise area in result set getter, if use col name has to look through result set
+	- DataSource as singleton, so only 1 instance ever
+	- Result set from multiple tables could have own class, and make instance to return each values from the class
+- ResultSetMeta data is type needed to get data from a result query (schema info)
+	 - Use to get data about the tables you are querying if you dont know name of table
+- Functions and Views
+	- When function in query like COUNT(): you treat function result as the column
+	- Multiple function returns are also treated like individual columns
+	- Can run execute method to create view and then query it like a table
