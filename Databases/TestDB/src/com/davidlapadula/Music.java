@@ -36,6 +36,17 @@ public class Music {
             return;
         }
 
+        songArtists = dataSource.querySongInfoView("Go Your Own Way");
+         if (songArtists.isEmpty()) {
+             System.out.println("Could not find artists");
+        }
+
+        for (SongArtist artist: songArtists) {
+            System.out.println(artist.getArtistName() + "-" + artist.getAlbumName() + "-"  + artist.getTrack());
+        }
+
+        dataSource.insertSong("Touch of Grey", "Grateful dead", "In The Dark", 1);
+
         dataSource.close();
     }
 }

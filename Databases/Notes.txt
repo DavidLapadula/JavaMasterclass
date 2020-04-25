@@ -79,3 +79,39 @@
 	- When function in query like COUNT(): you treat function result as the column
 	- Multiple function returns are also treated like individual columns
 	- Can run execute method to create view and then query it like a table
+- Injection Attacks and prepared statements
+	- SQL statement compiled to be readable, compiling before every query impacts performance (using executeQuery())
+	- Injection attack when put SQL query in the string that effects query, with blind concatenation
+	- Prepared statement class, no concatentation
+		- Values being substituted are treated as literal values, and not interpreted as actual SQL
+		- Precompiling requires table and column names in order to compile the code
+		- Use question mark as placeholder, only substitute a single value. And create instance variable so query is only precompiled once
+		- Connection.prepareStatement() when connection opens to only prepare it once
+			- Call to prepare needs string withe placeholders, and can use like VALUES (?,?)
+				- Values being mapped to an array, need to be accurate to prevent out of bound exception
+			- PreparedStatement is subclass of Statement, so same method available
+			- When Statement closed, active ResultSet also closed. New one will re-open next time because only 1 can be active
+			- Close PreparedStatement, but all before connection because conn resources closed in reverse order to how they are opened
+		- use instance.setString/Int(<placeholder position>, value), and then instance executeQuery() which still returns result set
+- Transaction
+	- Run statements as sequences of individuals units, if any step fails previous steps are rolled back
+	- Transaction must be ACID for data integrity
+		- Atomicity, Consistency: (DB in valid state before and after), Isolation: (until completed transaction not visible to other connections, and cant dependon other trx), Durability: once trx comitted it is permanent
+	- Statement class runs trx by default, and auto commits
+	- BEGIN, END TRANSACTION/COMMIT (will both end trx and commit), ROLLBACK (remove uncommitted sincel last commit or rollback)
+	- Close connection before commit, they are rolled back
+	- Trx called from connection class
+		- setAutoCommit(false), perform SQL, commit(), any errors and rollback()
+		- Instead of each statement being trx, set auto commit as false makes any subsequent SQL part of a transation
+	- Statement has static value RETURN_GENERATED_KEYS, second param to prepareStatement() that return _id when insert done
+		- Statement.getGeneratedKeys() to get the _id made after insertion
+	- call rollback() if exception is thrown will undo any uncomitted changes BUT if do not rollback and turn auto commit on it will commit changes
+		- So catch any Exception for rollback to ensure rollback() occurs
+	- executeUpdate() to change
+		
+		
+
+
+
+
+
