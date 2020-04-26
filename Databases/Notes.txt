@@ -1,0 +1,143 @@
+- Entire file in sqlite. NOT client/server
+- Dictionary: structure and types in the data
+- Table: collection of related data
+- Field: basic unit of data (name, type)
+- Row/Record: set of data for all columns, or 1 entry
+- Linking table to relate the data between two tables; prevent clutter from table with FK's 
+	- Normalization: remove duplicate and unnecessary data
+- View: look at data with multiple tables that have been joined
+	- Virutal table, can't modify but query as if were a table
+	- CREATE VIEW name AS <query>
+		- Can then query view, which is combination of query, so do not need to re-execute
+		- Good way to give read ability to some people without seeing all the data, or the actual data
+- Commands: capitalize reserved words
+	- CREATE table <name> (column name, column type);
+	- INSERT into <table> (column name) values (column value)
+		- If providing all fields do not need column names 
+	- SELECT (DISTINCT) * from <table>	
+		- If join can use properties from either table
+		- Distinct flag will prevent duplicates
+	- UPDATE <table> SET column=value WHERE update condition
+	- DELETE FROM <table> where delete condition
+	- ORDER BY condition(s); (uses natural order of values)
+		- COLLATE NO CASE to ignore
+		- ASC/DESC to describe order
+		- Multiple columns will order by groups of each condition
+		- Can add to the end of any query
+	- JOIN <table to join> on <select table value> = <joined table>.key
+		- Can select column of table using <table.column>
+		- Default join is INNER
+	- WHERE
+		- Can use wildcard to match parts of string when do not know: WHERE table.column LIKE "%<partial string>%"
+			- % %: can leave out start or finish if know how a string starts or finishes
+			- LIKE not case sensitive
+			- ? means 0 or more
+	- DROP VIEW/TABLE to remove
+	- COUNT to get amount
+	- UPDATE <table> set <value>
+	- IF NOT EXISTS to prevent error when running rpogram with table already
+	- MIN/MAX(<col name>): get the min value in that column
+	- AS: rename result to make it easier to get from result set
+- Columns have data type, but is not enforced. Only because uses SQL syntax
+	- NOT NULL means you cannot store blank area of this record
+	- No alter table for changing the type
+- .backup <file to back up to>, .restore <file used>, .tables to list tables, .schema for structure commands, .dump schema + commands to populate
+- .sql means has a script
+- Key is index, sorted, for searching and querying
+	- Make data ordered on the column with the key
+	- PK must be unique, sqlite3 autoincrement for FK is automatic, but other DB is not
+- Relational DB based on set theory, order is undefined
+- Stored procedures: fn to store queries
+	- Only SQL where db server running on other machine and stored procedure will run on that server, sqlite all running on one machine and embedded in programs
+- JDBC: Java database connectivity. Middle between java and data source
+	- Need driver for that data source to interact with JDBC
+	- Connection stream to connect to database, can specify attributes like U and PW
+		- JDBC driver docs to findout
+	- java.sql classes for connecting like DriverManager and Connection
+	- Statement object with conn.createStatement give statement object and use execute() on that instance
+		- execute() retun bool depending on statement returns instance of result set class
+		- Statement instance can only ever hasve 1 active result set
+		- Need new instance of ResultSet to call getResultSet() from execute(),is iterable for each result and can call getString/Int(<column>/<index>) for value
+			- Result set cursor starts before first record, moves to each record, and calling get() will return value from record at cursor position
+		- Reuse statement instance will close ResultSet and open new one. Results of first query need to process before next
+	- try-with-resources will close connection automatically when done
+		- statement type will close result set associated with it
+	- Sometimes connection does not commit changes automatically and need to do it manually
+	- Close statement instance first and then db connection
+	- Can use executeQuery() which will return result set in one step
+	- Use constant instead of hard coding, and use method for multiple inserts
+- Classes that use method in data model package SHOULD NOT know implementation details of model
+	- Return data only (through classes) just in case source of data changes
+	- Calling method should know nothing of where data is coming from
+	- Column indices (use constants) are more efficient, but cannot call by type. But index of col in result set NOT in table
+		- Using index gives more precise area in result set getter, if use col name has to look through result set
+	- DataSource as singleton, so only 1 instance ever
+	- Result set from multiple tables could have own class, and make instance to return each values from the class
+- ResultSetMeta data is type needed to get data from a result query (schema info)
+	 - Use to get data about the tables you are querying if you dont know name of table
+- Functions and Views
+	- When function in query like COUNT(): you treat function result as the column
+	- Multiple function returns are also treated like individual columns
+	- Can run execute method to create view and then query it like a table
+- Injection Attacks and prepared statements
+	- SQL statement compiled to be readable, compiling before every query impacts performance (using executeQuery())
+	- Injection attack when put SQL query in the string that effects query, with blind concatenation
+	- Prepared statement class, no concatentation
+		- Values being substituted are treated as literal values, and not interpreted as actual SQL
+		- Precompiling requires table and column names in order to compile the code
+		- Use question mark as placeholder, only substitute a single value. And create instance variable so query is only precompiled once
+		- Connection.prepareStatement() when connection opens to only prepare it once
+			- Call to prepare needs string withe placeholders, and can use like VALUES (?,?)
+				- Values being mapped to an array, need to be accurate to prevent out of bound exception
+			- PreparedStatement is subclass of Statement, so same method available
+			- When Statement closed, active ResultSet also closed. New one will re-open next time because only 1 can be active
+			- Close PreparedStatement, but all before connection because conn resources closed in reverse order to how they are opened
+		- use instance.setString/Int(<placeholder position>, value), and then instance executeQuery() which still returns result set
+- Transaction
+	- Run statements as sequences of individuals units, if any step fails previous steps are rolled back
+	- Use when want to make changes as a unit, only if ran succesfully
+	- Transaction must be ACID for data integrity
+		- Atomicity, Consistency: (DB in valid state before and after), Isolation: (until completed transaction not visible to other connections, and cant dependon other trx), Durability: once trx comitted it is permanent
+	- Statement class runs trx by default, and auto commits
+	- BEGIN, END TRANSACTION/COMMIT (will both end trx and commit), ROLLBACK (remove uncommitted sincel last commit or rollback)
+	- Close connection before commit, they are rolled back
+	- Trx called from connection class
+		- setAutoCommit(false), perform SQL, commit(), any errors and rollback()
+		- Instead of each statement being trx, set auto commit as false makes any subsequent SQL part of a transation
+	- Statement has static value RETURN_GENERATED_KEYS, second param to prepareStatement() that return _id when insert done
+		- Statement.getGeneratedKeys() to get the _id made after insertion
+	- call rollback() if exception is thrown will undo any uncomitted changes BUT if do not rollback and turn auto commit on it will commit changes
+		- So catch any Exception for rollback to ensure rollback() occurs
+		- Connection.savePoint(), returns object that can pass to rollback(<savePoint obj>) to rollback to that point
+	- executeUpdate() to change
+- DB with GUI
+	- Can use property in UI using templating like ${}
+	- Singleton pattern for datasource, because only want 1 instance of that class
+		- Done so by making private constructor so only class can make instance of itself. Constructor holds static instance of class that calling classes use
+		- Lazy Instantiation: instance is not created until first time it is needed. 
+			- NOT thread safe if use getter because check for null can be interupted and two instance can be made
+			- Make thread safe by declaring and make new instance at once, still lazy because instance not created until getter called with reference to class
+	- FX lifecyle methods to open/close using init/stop of Application class to only open and close connection once
+		- open() returns value if open successful for error handling
+	- Use Task on background thread, make its own class that extends Task instead of anonymous class so can be called from multiple places
+		- Need a new Thread to start task using start()
+	- SimpleInteger/StringProperty to allow for databinding in UI. Databinding used as much as possible so do not need to handle populating view when task completes
+		- This class need to set() value with type, and use get() on instance to retrieve proper type from class
+	- Use cellfactory to map between value in class and value in UI. Make instance in controller and use itemProperty().bind() with values you want passed in
+		- Property of cellFactoryValue will map to name in list of objects that form list of values
+	- Need to load FXML view before any data is called, and any call for something in UI needs to run in UI thread
+		- call() in Task NOT in UI thread, but does have progressProperty()
+		- Task has setOnSucceeded to run EventHandler
+	- Want to run task on background thread with something like Task, but change in UI needs to be on UI Thread
+		- Task.setOnSucceeded/Failed or Platform.runLater will run on UI thread
+	- Updating UI on updates
+		- Can run task to do DB update, and can be anon because only calling there, and override call() to do update
+		- Task.onSucceeded will run on UI Thread so can update it, and Task return will have valueProperty() to ensure it return something from DB operation
+
+		
+		
+
+
+
+
+
