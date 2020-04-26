@@ -95,6 +95,7 @@
 		- use instance.setString/Int(<placeholder position>, value), and then instance executeQuery() which still returns result set
 - Transaction
 	- Run statements as sequences of individuals units, if any step fails previous steps are rolled back
+	- Use when want to make changes as a unit, only if ran succesfully
 	- Transaction must be ACID for data integrity
 		- Atomicity, Consistency: (DB in valid state before and after), Isolation: (until completed transaction not visible to other connections, and cant dependon other trx), Durability: once trx comitted it is permanent
 	- Statement class runs trx by default, and auto commits
@@ -107,7 +108,32 @@
 		- Statement.getGeneratedKeys() to get the _id made after insertion
 	- call rollback() if exception is thrown will undo any uncomitted changes BUT if do not rollback and turn auto commit on it will commit changes
 		- So catch any Exception for rollback to ensure rollback() occurs
+		- Connection.savePoint(), returns object that can pass to rollback(<savePoint obj>) to rollback to that point
 	- executeUpdate() to change
+- DB with GUI
+	- Can use property in UI using templating like ${}
+	- Singleton pattern for datasource, because only want 1 instance of that class
+		- Done so by making private constructor so only class can make instance of itself. Constructor holds static instance of class that calling classes use
+		- Lazy Instantiation: instance is not created until first time it is needed. 
+			- NOT thread safe if use getter because check for null can be interupted and two instance can be made
+			- Make thread safe by declaring and make new instance at once, still lazy because instance not created until getter called with reference to class
+	- FX lifecyle methods to open/close using init/stop of Application class to only open and close connection once
+		- open() returns value if open successful for error handling
+	- Use Task on background thread, make its own class that extends Task instead of anonymous class so can be called from multiple places
+		- Need a new Thread to start task using start()
+	- SimpleInteger/StringProperty to allow for databinding in UI. Databinding used as much as possible so do not need to handle populating view when task completes
+		- This class need to set() value with type, and use get() on instance to retrieve proper type from class
+	- Use cellfactory to map between value in class and value in UI. Make instance in controller and use itemProperty().bind() with values you want passed in
+		- Property of cellFactoryValue will map to name in list of objects that form list of values
+	- Need to load FXML view before any data is called, and any call for something in UI needs to run in UI thread
+		- call() in Task NOT in UI thread, but does have progressProperty()
+		- Task has setOnSucceeded to run EventHandler
+	- Want to run task on background thread with something like Task, but change in UI needs to be on UI Thread
+		- Task.setOnSucceeded/Failed or Platform.runLater will run on UI thread
+	- Updating UI on updates
+		- Can run task to do DB update, and can be anon because only calling there, and override call() to do update
+		- Task.onSucceeded will run on UI Thread so can update it, and Task return will have valueProperty() to ensure it return something from DB operation
+
 		
 		
 
