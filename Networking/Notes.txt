@@ -1,0 +1,53 @@
+- Bunch of computers that share resources, could even exist on one machine
+- Machine is meant to mean host, and Client/Server is most common network model.
+- Commnicate with Transport Protocol
+- Machine usually has one connection to network, with multiple apps need data from network. Accessed by Port
+	- Application is assigned a port, which is used to route data in from network  
+- IPv4 (32 bit address), and IPv6 (128 bit address) written in hexadecimal
+- TCP/IP: TCP protocol with IP addresses
+- Java.net : abstract networking to allow implementation easier (Low-level API, High-level API)
+	- Do not need to worry about handshake or constructing packets
+- Transmission control protocol, two way connection between hosts - using IP addresses for
+	- Socket: one endpoint of connection. Multiple client contact same server, all on the same port but each with different socket
+- Data sent in packets that needs to be in specific form, and connection made with handshake
+- ServerSocket
+	- Every application that communicates with server will use same port on different socket
+	- Need Socket instance on port to accept requests
+		- accept() will return socket from client on Server. Can use getInput/OutputStream to send and recieve data from socket
+	- Server will wait for a client thread to connect to it
+	- IO streams used to send/get data from client. getInput/OutputStream on socket instance, and wrap with BufferedReader/PrintWriter
+- Multi threaded server
+	- Need new socket for additional connections BUT server could be blocked by waiting for input because connection relies on receiving something from client
+	- Multiple clients requires multiple threads, because calls can be blocked for each client if running at the same time
+		- Even if thread is blocked, will only be that thread
+		- New stream per thread responsible for responding to IO events
+		- Make server more responsive, prevent one client from hogging resources
+		- Extend Task for multiple threads and make new Socket and IO objects when overriding run
+	- Timeout: client will not wait forever for response. Set timeout on client Socket instance to prevent getting stuck, and catch socket timeout exception
+- UDP (User datagram protocol), is connectionless
+	- TCP requires 2 way coupling with handshake, and is reliable because will catch errors and return data that has not been sent. But this has resource overhead
+	- UDP has no handshake, destination sends no response
+		- For when need fast connection, but not two way or secure
+	- Datagram: self contained message, no guarantee packets arrive. Best for time sensitive
+		- DatagramSocket to open connection and use receive(), send DatagramPacket as byte array (buffer)
+			- Server socket, DOES NOT create end to end connection unlike TCP Socket.accept(), cannot send data back
+			- Datagram socket can send() and recieve() packets
+		- Inet address to get local host address, make new DatagramPacket, and pass in buffer as byte array, address, and port connecting to server
+			- Data is self contained, contains all info (address, data etc.) so server does not have this info with just 1 connection like with TCP
+				- To send data back, server can get address and port from received packet and send it back because has no info in actual connection
+High Level API
+	- Universal Resource Indicator/Locator
+	- URI identifier may not have enough info to access resource, URL does
+	- URI is rel path, URL is absolute path because need enough info to get to resource
+		- URL is http (scheme) URI. 
+		- Absolute URI has a scheme
+	- High level is using URI, URL, HTTP classes and API from Java.net
+	- URI instance of class, has getters for all parts of URI (Scheme, Authority, Host, Port, Path, etc)
+		- Query will always start with question mark, # will be fragment of query
+		- Does not need every part, can go without scheme
+	- URI to URL conversion:
+		- URL needs absolute location of resource as root
+		- URI Intance toURL(), but could be malformed. 
+		- Cannot convert to URL unless is absolute path
+	- Relative URI used with base root, only need to work with relative, and then store base in one place
+	- Can URIInstance.resolve(<relative URI>) to resolve root with relative so it works 
