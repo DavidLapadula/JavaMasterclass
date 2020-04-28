@@ -51,3 +51,24 @@ High Level API
 		- Cannot convert to URL unless is absolute path
 	- Relative URI used with base root, only need to work with relative, and then store base in one place
 	- Can URIInstance.resolve(<relative URI>) to resolve root with relative so it works 
+	- baseURL.relativize() will give rlative path between base and rel URI
+URL connections
+	- URL can be turned to URI, and then can use URI methods on that
+	- URL allows to open stream, which is passed into InputStreamReader, can then use readLine becuase returning inputStream
+	- URLConnection, uses openConnection from URL instance, and then connect()
+		- openConnection only returns instance that can be used to configure connection (reading, writing, caching) before connect()
+		- Need setDoOutput BEFORE connect() to write to URL
+	- Can get headers with getHeaderFields(), or getHeaderField() for individual values
+	- HTTPURLConnection (subclass of URLConnection) has support for HTTP features, like form submission
+		- Still configure connection() before calling connect, like setRequestMethod() to configure connection type
+		- Each instance of HTTPURLConn can only make 1 request, but actual underlying connection can persist if one HTTPconn closed
+		- setRequestProperty(<property>, <value>), one per value, also being able to set timeout value
+			- Example would be a Content-Type and Content-Length
+		- Methods that require connection to work, implicity call connect() if it has not been called
+		- Output Stream to write to a connection
+Alternatives to HttpURLConnection
+	- 
+
+
+
+

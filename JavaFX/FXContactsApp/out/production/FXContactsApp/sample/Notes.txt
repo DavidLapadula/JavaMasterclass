@@ -5,4 +5,4 @@
 - Cell value factory to take advantage of data binding, Property Value factory works within cellValueFactory and has property field that matches name in controller
 - FxmlLoader used to get access to other controllers within the application associated with fxml file
 
-- Column resize policy of table view
+- Responsive: columnResizePolicy is property of tableView to make sure columns take up all space of window
