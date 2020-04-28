@@ -65,9 +65,11 @@ URL connections
 		- setRequestProperty(<property>, <value>), one per value, also being able to set timeout value
 			- Example would be a Content-Type and Content-Length
 		- Methods that require connection to work, implicity call connect() if it has not been called
-		- Output Stream to write to a connection
+		- Output Stream to write to a connection, using DataOutputStream
 Alternatives to HttpURLConnection
-	- 
+	- URLconnection designed for defunct protocols, only works in blocking mode
+	- Jetty and Apache HTTPClient instead of java.net version with issues
+		- Reader still needs to be closed to ensure resources are not wasted
 
 
 
