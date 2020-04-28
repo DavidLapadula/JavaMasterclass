@@ -1,0 +1,35 @@
+- Java app as collection of modules, for encapsulation and modulation. Known as JPMS
+- Module: named collection of data and code, like container
+	- Module > Packages > Classes/Interfaces etc
+	- Modulur re-usable components, so each java application does not have to be one big package
+- Module needs name, inputs, and outputs. 
+	- Imports are other module, and Export packages
+	- Internal packages used to code
+	- Exported packages can be used by other packages
+- Platform modules come from java, are prefixed with java
+- Declaration: name that can be used in other declarations
+- Normal and Open modules: 
+	- Normal: access at compile and run time to types in packages that are exported
+	- Open: Access at run time to types in all its packages
+- Goals: Scalable platform, Maintainability with better organization, Better performance with necessary runtimes, Easier development
+- Module keyword for module declaration, add access modifier
+- Statements inside module definition for access and use, like provides, exports, reqiures etc. 
+- Module Types
+	- Named Module: 
+		- Has a name, and declared in module descriptor file
+		- Can be normal or automatic
+			- Automatic does not have descriptor
+				- Add jar file to path, automatically created
+				- Exports all packages
+				- Useful for 3rd Party and migration modules
+			- Normal: named module that is not automatic
+				- Declared using keyword module, does not export packages by default, can be basic or open
+			- Basic: not an open module
+			- Open: 3rd party libs need open module use reflection to access JDK
+				- Allow the use of reflection
+	- Unnamed Module:
+		- Export all packages, and reads all modules from class path
+		- Collection of jar files from the classpath
+- Aggregator: collect and export content of many modules, useful for making 1 module that other modules with shared dependencies an rely on
+- Module path: path to folders with modules, or modular jar file
+	- Used by compiler to find and resolve modules

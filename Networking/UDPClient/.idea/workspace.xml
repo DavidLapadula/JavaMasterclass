@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="34dc3ab7-d57f-4b60-b32d-83bafb5ecbfb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../EchoClient/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EchoClient/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EchoClient/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EchoClient/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EchoClient/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EchoClient/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EchoClient/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EchoClient/EchoClient.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EchoClient/src/com/davidlapadula/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EchoServer/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EchoServer/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EchoServer/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EchoServer/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EchoServer/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EchoServer/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EchoServer/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EchoServer/EchoServer.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EchoServer/src/com/davidlapadula/Echoer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EchoServer/src/com/davidlapadula/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UDPClient.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/davidlapadula/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UDPServer/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UDPServer/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UDPServer/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UDPServer/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UDPServer/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UDPServer/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UDPServer/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UDPServer/UDPServer.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UDPServer/src/com/davidlapadula/Main.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1b87SRvfUVQEfOwXbxlNwH7u9AQ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="flattenPackages" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.davidlapadula.Main" />
+      <module name="UDPClient" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="34dc3ab7-d57f-4b60-b32d-83bafb5ecbfb" name="Default Changelist" comment="" />
+      <created>1588001866427</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1588001866427</updated>
+      <workItem from="1588001867662" duration="1879000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+</project>
