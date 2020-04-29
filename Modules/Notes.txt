@@ -3,9 +3,10 @@
 	- Module > Packages > Classes/Interfaces etc
 	- Modulur re-usable components, so each java application does not have to be one big package
 - Module needs name, inputs, and outputs. 
-	- Imports are other module, and Export packages
+	- Imports MODULES to use, and Export PACKAGES for other modules to use
 	- Internal packages used to code
 	- Exported packages can be used by other packages
+	- Could have resources like images, XML
 - Platform modules come from java, are prefixed with java
 - Declaration: name that can be used in other declarations
 - Normal and Open modules: 
@@ -24,12 +25,29 @@
 				- Useful for 3rd Party and migration modules
 			- Normal: named module that is not automatic
 				- Declared using keyword module, does not export packages by default, can be basic or open
-			- Basic: not an open module
-			- Open: 3rd party libs need open module use reflection to access JDK
-				- Allow the use of reflection
+				- Basic: not an open module
+				- Open: 3rd party libs need open module use reflection to access JDK
+					- Allow the use of reflection
 	- Unnamed Module:
 		- Export all packages, and reads all modules from class path
 		- Collection of jar files from the classpath
 - Aggregator: collect and export content of many modules, useful for making 1 module that other modules with shared dependencies an rely on
 - Module path: path to folders with modules, or modular jar file
 	- Used by compiler to find and resolve modules
+- Migrating Projects
+	- Import as new project, ensure using JDK 9, and Impor dependencies from 'problems' of Project Structure pane
+	- Separate into distinct components as modules with similar functionality
+	- Modules do not care about each other (modular) could require their functionality
+- Creating Modules
+	- File > New Module, and put all files/classes
+	- module-info.java is descriptor
+	- Modules need to be required in descriptor file for project
+	- Need to export package in order for other packages to use them. Need to export internal packages to specific other modules
+	- Module descriptor must also 'open' internal packages when things need to be injected, like FXML annotation
+	- Must import AND requires for access to other modules. Need to add as dependency even if require in descriptor file
+	- Name of automatic module is name of jar file without the version, so just require jar in module descriptor
+- Can export package to specific module for use, or just generally export it for general access
+- Modules allows drawing modules as nodes with relationships as dependencies
+- Transitive Dependencies
+	- A req B, A can read public/protected types in module B.
+	- Useful for: A req B and C, B requires C. You can make B require C transitively, to give A access to C
