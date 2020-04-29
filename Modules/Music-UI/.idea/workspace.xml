@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1fbaa77a-5c37-4047-9bf1-95d4fb1fa1d6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/$CACHE_FILE$" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/david.music.common/src/david/music/common/Album.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/david.music.common/src/david/music/common/Artist.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/david.music.common/src/module-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/david.music.db/src/david/music/db/Datasource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/david.music.db/src/module-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/david.music.ui/src/david/music/ui/Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/david.music.ui/src/david/music/ui/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/david.music.ui/src/david/music/ui/main.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/david.music.ui/src/module-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/sqlite-jdbc-3.21.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/music.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Notes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Notes.txt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="module-info" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1bDZy2nhVtqajwvoiqFSk8zfzMa" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="flattenPackages" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="$PROJECT_DIR$/../../../../../../../../Program Files/nodejs/node" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\DavidLapadula\Desktop\Education\Courses\JavaMasterclass@Udemy\Modules\Music-UI\david.music.common\src\david\music\ui" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1fbaa77a-5c37-4047-9bf1-95d4fb1fa1d6" name="Default Changelist" comment="" />
+      <created>1588168875403</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1588168875403</updated>
+      <workItem from="1588168877989" duration="5032000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="758" y="624" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1588173757090">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="758" y="624" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/2560.0.2560.1400/0.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588173757090" />
+    <state x="760" y="274" key="SettingsEditor" timestamp="1588174122554">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="760" y="274" key="SettingsEditor/2560.0.2560.1400/0.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588174122554" />
+    <state x="662" y="320" key="new project wizard" timestamp="1588173713547">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="662" y="320" key="new project wizard/2560.0.2560.1400/0.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588173713547" />
+    <state x="936" y="330" key="run.anything.popup" timestamp="1588171164741">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="936" y="330" key="run.anything.popup/2560.0.2560.1400/0.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588171164741" />
+  </component>
+</project>
