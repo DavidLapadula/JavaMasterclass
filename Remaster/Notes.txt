@@ -1,0 +1,5 @@
+Keywords and Conventions
+	- Convention as scheme for naming things 
+	- Associativity (could be left or right) depending on precedence
+	- Pre decrement/increment is before assignment and post is after assignment (pre/post fix)
+	- 

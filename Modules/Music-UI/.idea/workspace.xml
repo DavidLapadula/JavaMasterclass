@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fbaa77a-5c37-4047-9bf1-95d4fb1fa1d6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/$CACHE_FILE$" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david.music.common/src/david/music/common/Album.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david.music.common/src/david/music/common/Artist.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david.music.common/src/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david.music.db/src/david/music/db/Datasource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david.music.db/src/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david.music.ui/src/david/music/ui/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david.music.ui/src/david/music/ui/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david.music.ui/src/david/music/ui/main.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david.music.ui/src/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/sqlite-jdbc-3.21.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/music.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Notes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Notes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +55,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1588168875403</updated>
-      <workItem from="1588168877989" duration="5032000" />
+      <workItem from="1588168877989" duration="5993000" />
+      <workItem from="1588177190611" duration="4000" />
+      <workItem from="1588177203696" duration="4000" />
     </task>
     <servers />
   </component>
